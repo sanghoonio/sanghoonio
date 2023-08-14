@@ -8,10 +8,13 @@
 #
 
 library(shiny)
+library(bslib)
+
+options(shiny.port = 8080)
 
 # Define UI for application that draws a histogram
-source('ui.R', local = TRUE)
-source('server.R', local = TRUE)
+source('ui.R', local = F)
+source('server.R', local = F)
 
 # Run the application 
 shinyApp(ui = ui, server = server)
