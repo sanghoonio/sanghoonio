@@ -9,7 +9,8 @@ ui <- bootstrapPage(
         tags$link(rel = 'stylesheet', type = 'text/css', href = 'style.css')
     ),
     tags$head(
-        tags$link(rel = 'stylesheet', type = 'text/css', href = 'all.min.css')
+        # tags$link(rel = 'stylesheet', type = 'text/css', href = 'all.min.css')
+        tags$link(rel = 'stylesheet', type = 'text/css', href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css')
     ),
     
     div(
@@ -48,11 +49,11 @@ ui <- bootstrapPage(
                         div(
                             class = 'row container-fluid',
                             div(
-                                class = 'cv-item col-sm-10',
+                                class = 'cv-item col-sm-8',
                                 h6('University of Virginia, Charlottesville, Virginia')
                             ),
                             div(
-                                class = 'cv-year col-sm-2',
+                                class = 'cv-year col-sm-4',
                                 h6('2018-2022')
                             )
                         ),
@@ -69,11 +70,11 @@ ui <- bootstrapPage(
                         div(
                             class = 'row container-fluid',
                             div(
-                                class = 'cv-item col-sm-10',
+                                class = 'cv-item col-sm-8',
                                 h6('Automated Continuous Historian Tool')
                             ),
                             div(
-                                class = 'cv-year col-sm-2',
+                                class = 'cv-year col-sm-4',
                                 h6('2023')
                             )
                         ),
@@ -86,11 +87,11 @@ ui <- bootstrapPage(
                         div(
                             class = 'row container-fluid',
                             div(
-                                class = 'cv-item col-sm-10',
+                                class = 'cv-item col-sm-8',
                                 h6('Undergraduate BME Capstone Project')
                             ),
                             div(
-                                class = 'cv-year col-sm-2',
+                                class = 'cv-year col-sm-4',
                                 h6('2021-2022')
                             )
                         ),
@@ -103,11 +104,11 @@ ui <- bootstrapPage(
                         div(
                             class = 'row container-fluid',
                             div(
-                                class = 'cv-item col-sm-10',
+                                class = 'cv-item col-sm-8',
                                 h6('Harrison Undergraduate Research Award')
                             ),
                             div(
-                                class = 'cv-year col-sm-2',
+                                class = 'cv-year col-sm-4',
                                 h6('2021')
                             )
                         ),
@@ -124,11 +125,11 @@ ui <- bootstrapPage(
                         div(
                             class = 'row container-fluid',
                             div(
-                                class = 'cv-item col-sm-10',
+                                class = 'cv-item col-sm-8',
                                 h6('Automation Engineer, Merck & Co. (Contractor)')
                             ),
                             div(
-                                class = 'cv-year col-sm-2',
+                                class = 'cv-year col-sm-4',
                                 h6('2022-Current')
                             )
                         ),
@@ -147,11 +148,11 @@ ui <- bootstrapPage(
                         div(
                             class = 'row container-fluid',
                             div(
-                                class = 'cv-item col-sm-10',
+                                class = 'cv-item col-sm-8',
                                 h6('R&D Intern, Predictiv Care, Inc.')
                             ),
                             div(
-                                class = 'cv-year col-sm-2',
+                                class = 'cv-year col-sm-4',
                                 h6('2022-Current')
                             )
                         ),
@@ -174,11 +175,11 @@ ui <- bootstrapPage(
                         div(
                             class = 'row container-fluid',
                             div(
-                                class = 'cv-item col-sm-10',
+                                class = 'cv-item col-sm-8',
                                 h6('Programming')
                             ),
                             div(
-                                class = 'cv-year col-sm-2',
+                                class = 'cv-year col-sm-4',
                             )
                         ),
                         div(
@@ -188,11 +189,11 @@ ui <- bootstrapPage(
                         div(
                             class = 'row container-fluid',
                             div(
-                                class = 'cv-item col-sm-10',
+                                class = 'cv-item col-sm-8',
                                 h6('Technical')
                             ),
                             div(
-                                class = 'cv-year col-sm-2',
+                                class = 'cv-year col-sm-4',
                             )
                         ),
                         div(

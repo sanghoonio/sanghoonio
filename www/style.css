@@ -1,5 +1,7 @@
 /* FONTS */
 
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap');
+/*
 @font-face {
   font-family: 'cabin_regular';
   font-weight: 400;
@@ -27,27 +29,26 @@
   font-style: normal;
   src: url('fonts/cabin_bold.woff2') format('woff2');
 }
-
+*/
 /* MAIN */
 
 body {
-  
-  font-family: 'cabin_regular', arial, sans-serif;
-  font-weight: normal;
+  font-family: 'Cabin', arial, sans-serif;
+  font-weight: 400;
   font-style: normal;
   background: #E9E4F2;
   color: black;
 }
 
 strong {
-  font-family: 'cabin_bold', arial, sans-serif;
-  font-weight: normal;
+  font-family: 'Cabin', arial, sans-serif;
+  font-weight: 700;
   font-style: normal;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'cabin_medium', arial, sans-serif;
-  font-weight: normal;
+  font-family: 'Cabin', arial, sans-serif;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -67,10 +68,28 @@ h1, h2, h3, h4, h5, h6 {
     padding: 100px 0 0 0;
 }
 
-.body-text {
-    text-align: center;
-    width: 50%;
-    padding: 30px 0 100px 0;
+@media (max-width: 576px) {
+    .body-text {
+        text-align: center;
+        width: 100%;
+        padding: 30px 0 100px 0;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .body-text {
+        text-align: center;
+        width: 70%;
+        padding: 30px 0 100px 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .body-text {
+        text-align: center;
+        width: 50%;
+        padding: 30px 0 100px 0;
+    }
 }
 
 .cv-header {
@@ -111,10 +130,25 @@ h1, h2, h3, h4, h5, h6 {
     margin: 10px 0 5px 0;
 }
 
-.cv-year {
-    padding: 0;
-    text-align: right;
-    margin: 10px 0 5px 0;
+
+@media (max-width: 576px) {
+    .cv-year {
+        padding: 0;
+        text-align: left;
+        margin: 0 0 5px 0;
+    }
+    
+    .cv-year h6 {
+        font-size: 0.9em;
+    }
+}
+
+@media (min-width: 576px) {
+    .cv-year {
+        padding: 0;
+        text-align: right;
+        margin: 10px 0 5px 0;
+    }
 }
 
 .cv-details {
@@ -138,8 +172,8 @@ h1, h2, h3, h4, h5, h6 {
 /* NAVBAR */
 
 #navbar {
-    font-family: 'cabin_regular', arial, sans-serif;
-    font-weight: normal;
+    font-family: 'Cabin', arial, sans-serif;
+    font-weight: 400;
     font-style: normal;
     padding: 0;
     margin-bottom: 0;
@@ -158,13 +192,26 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.2s;
 }
 
-#navbarSupportedContent a {
-    padding: 18px;
-    display: block;
-    font-size: 1em;
-    text-align: center;
-    width: 180px;
-    color: #4E043A;
+@media (max-width: 576px) {
+    #navbarSupportedContent a {
+        padding: 18px;
+        display: block;
+        font-size: 1em;
+        text-align: center;
+        width: 100%;
+        color: #4E043A;
+    }
+}
+
+@media (min-width: 576px) {
+    #navbarSupportedContent a {
+        padding: 18px;
+        display: block;
+        font-size: 1em;
+        text-align: center;
+        width: 180px;
+        color: #4E043A;
+    }
 }
 
 #navbarSupportedContent a:hover {
@@ -173,8 +220,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #navbarSupportedContent a.active {
-    font-family: 'cabin_bold', arial, sans-serif;
-    font-weight: normal;
+    font-family: 'Cabin', arial, sans-serif;
+    font-weight: 700;
     font-style: normal;
     color: #4E043A;
     box-shadow: 0 -6px 0 0 #4E043A inset;
