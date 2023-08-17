@@ -13,10 +13,11 @@ ui <- bootstrapPage(
         tags$link(rel = 'stylesheet', type = 'text/css', href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css')
     ),
     
-    tags$head(tags$link(rel = 'icon', type = 'image/x-icon', href = '/favicon/favicon.ico')),
-    tags$head(tags$link(rel = 'icon', type = 'image/png', href = '/favicon/favicon-32x32.png')),
-    tags$head(tags$link(rel = 'icon', type = 'image/png', href = '/favicon/favicon-16x16.png')),
-    tags$head(tags$link(rel = 'apple-touch-icon', sizes='180x180', href = '/favicon/apple-touch-icon.png"')),
+    tags$head(tags$link(rel = 'icon', type = 'image/x-icon', href = '/favicon.ico')),
+    tags$head(tags$link(rel = 'icon', type = 'image/png', href = '/favicon-32x32.png')),
+    tags$head(tags$link(rel = 'icon', type = 'image/png', href = '/favicon-16x16.png')),
+    tags$head(tags$link(rel = 'apple-touch-icon', sizes='180x180', href = '/apple-touch-icon.png')),
+    tags$head(tags$link(rel = 'manifest', sizes='180x180', href = '/site.webmanifest')),
     tags$head(tags$title('Sam Park')),
     
     div(
