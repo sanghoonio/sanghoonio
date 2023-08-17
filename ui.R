@@ -53,7 +53,7 @@ ui <- bootstrapPage(
                                 ),
                                 div(
                                     class = 'container-fluid body-text col-sm-4 sam',
-                                    img(src = 'sam2.png', align = 'left'),
+                                    img(src = 'sam.png', align = 'left'),
                                 )
                             ),
                         ),
