@@ -1,35 +1,7 @@
 /* FONTS */
 
 @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap');
-/*
-@font-face {
-  font-family: 'cabin_regular';
-  font-weight: 400;
-  font-style: normal;
-  src: url('fonts/cabin_regular.woff2') format('woff2');
-}
 
-@font-face {
-  font-family: 'cabin_medium';
-  font-weight: 500;
-  font-style: normal;
-  src: url('fonts/cabin_medium.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'cabin_semibold';
-  font-weight: 600;
-  font-style: normal;
-  src: url('fonts/cabin_semibold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'cabin_bold';
-  font-weight: 700;
-  font-style: normal;
-  src: url('fonts/cabin_bold.woff2') format('woff2');
-}
-*/
 /* MAIN */
 
 body {
@@ -63,37 +35,44 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
-.body-header {
-    text-align: center;
-    padding: 100px 0 0 0;
+.body-container {
+    padding: 0;
+    margin: 0;
+    min-height: calc(100vh - 200px);
+    box-sizing: border-box;
 }
 
 @media (max-width: 576px) {
-    .body-text {
-        text-align: center;
+    .sam img {
         width: 100%;
-        padding: 30px 0 100px 0;
+        
     }
 }
 
-@media (min-width: 576px) and (max-width: 768px) {
-    .body-text {
-        text-align: center;
-        width: 70%;
-        padding: 30px 0 100px 0;
+@media (min-width: 576px) {
+    .sam img {
+          background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 1) 240px, rgba(255, 255, 255, 1) 290px), url('www/sam.png') no-repeat;
+
+        width: calc(100% + 120px);
+        margin-left: calc(-120px);
+        
     }
 }
 
-@media (min-width: 768px) {
-    .body-text {
-        text-align: center;
-        width: 50%;
-        padding: 30px 0 100px 0;
-    }
+
+.body-header {
+    padding: 10vh 0 0 0;
+    text-align: left;
+}
+
+.body-text {
+    padding: 0;
+    text-align: left;
+    margin: 0px 0 10px 0;
 }
 
 .cv-header {
-    padding: 50px 0 0 0;
+    padding: 0;
     text-align: left;
 }
 

@@ -13,6 +13,10 @@ ui <- bootstrapPage(
         tags$link(rel = 'stylesheet', type = 'text/css', href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css')
     ),
     
+    tags$head(tags$link(rel = 'icon', type = 'image/x-icon', href = '/favicon/favicon.ico')),
+    tags$head(tags$link(rel = 'apple-touch-icon', sizes='180x180', href = '/favicon/apple-touch-icon.png"')),
+    tags$head(tags$title('Sam Park')),
+    
     div(
         id = 'wrapper',
         class = 'wraper',
@@ -31,12 +35,24 @@ ui <- bootstrapPage(
                     div(
                         class = 'col-sm-12',
                         div(
-                            class = 'container-fluid body-header',
-                            h2('hello!')
-                        ),
-                        div(
-                            class = 'container-fluid body-text',
-                            p('I am an engineer with a B.S. in biomedical engineering and a minor in computer science from UVA. As a student, I was able to discover my interest in applying data science and computational modeling to biology and genetics through my courses and various projects. These experiences have contributed to my excitement for a new priority in our field: personalized, data-driven medicine. Since graduating, I have worked with Merck as an automation engineer to support their Gardasil HPV vaccine production process and learn about the manufacturing side of the pharmaceutical industry while simultaneously pursuing my interests in genomics part-time with Predictiv Care Inc., whose mission is to provide a novel DNA-based digital twin service by incorporating our genetic data.')
+                            class = 'container-fluid body-container',
+                            div(
+                                class = 'container-fluid body-header',
+                                h3('hello!')
+                            ),
+                            div(
+                                class = 'row container-fluid',
+                                div(
+                                    class = 'container-fluid body-text col-sm-8',
+                                    style = 'z-index: 1;',
+                                    p('I am an engineer with a B.S. in biomedical engineering and a minor in computer science from UVA. As a student, I was able to discover my interest in applying data science and computational modeling to biology and genetics through my courses and various projects. These experiences have contributed to my excitement for a new priority in our field: personalized, data-driven medicine. Since graduating, I have worked with Merck as an automation engineer to support their Gardasil HPV vaccine production process and learn about the manufacturing side of the pharmaceutical industry while simultaneously pursuing my interests in genomics part-time with Predictiv Care Inc., whose mission is to provide a novel DNA-based digital twin service by incorporating our genetic data.'),
+
+                                ),
+                                div(
+                                    class = 'container-fluid body-text col-sm-4 sam',
+                                    img(src = 'sam2.png', align = 'left'),
+                                )
+                            ),
                         ),
                         div(
                             class = 'container-fluid cv-header',
@@ -49,11 +65,11 @@ ui <- bootstrapPage(
                         div(
                             class = 'row container-fluid',
                             div(
-                                class = 'cv-item col-sm-8',
+                                class = 'container-fluid cv-item col-sm-8',
                                 h6('University of Virginia, Charlottesville, Virginia')
                             ),
                             div(
-                                class = 'cv-year col-sm-4',
+                                class = 'container-fluid cv-year col-sm-4',
                                 h6('2018-2022')
                             )
                         ),
@@ -70,11 +86,11 @@ ui <- bootstrapPage(
                         div(
                             class = 'row container-fluid',
                             div(
-                                class = 'cv-item col-sm-8',
+                                class = 'container-fluid cv-item col-sm-8',
                                 h6('Automated Continuous Historian Tool')
                             ),
                             div(
-                                class = 'cv-year col-sm-4',
+                                class = 'container-fluid cv-year col-sm-4',
                                 h6('2023')
                             )
                         ),
@@ -87,11 +103,11 @@ ui <- bootstrapPage(
                         div(
                             class = 'row container-fluid',
                             div(
-                                class = 'cv-item col-sm-8',
+                                class = 'container-fluid cv-item col-sm-8',
                                 h6('Undergraduate BME Capstone Project')
                             ),
                             div(
-                                class = 'cv-year col-sm-4',
+                                class = 'container-fluid cv-year col-sm-4',
                                 h6('2021-2022')
                             )
                         ),
@@ -104,11 +120,11 @@ ui <- bootstrapPage(
                         div(
                             class = 'row container-fluid',
                             div(
-                                class = 'cv-item col-sm-8',
+                                class = 'container-fluid cv-item col-sm-8',
                                 h6('Harrison Undergraduate Research Award')
                             ),
                             div(
-                                class = 'cv-year col-sm-4',
+                                class = 'container-fluid cv-year col-sm-4',
                                 h6('2021')
                             )
                         ),
@@ -125,11 +141,11 @@ ui <- bootstrapPage(
                         div(
                             class = 'row container-fluid',
                             div(
-                                class = 'cv-item col-sm-8',
+                                class = 'container-fluid cv-item col-sm-8',
                                 h6('Automation Engineer, Merck & Co. (Contractor)')
                             ),
                             div(
-                                class = 'cv-year col-sm-4',
+                                class = 'container-fluid cv-year col-sm-4',
                                 h6('2022-Current')
                             )
                         ),
@@ -148,11 +164,11 @@ ui <- bootstrapPage(
                         div(
                             class = 'row container-fluid',
                             div(
-                                class = 'cv-item col-sm-8',
+                                class = 'container-fluid cv-item col-sm-8',
                                 h6('R&D Intern, Predictiv Care, Inc.')
                             ),
                             div(
-                                class = 'cv-year col-sm-4',
+                                class = 'container-fluid cv-year col-sm-4',
                                 h6('2022-Current')
                             )
                         ),
@@ -175,11 +191,11 @@ ui <- bootstrapPage(
                         div(
                             class = 'row container-fluid',
                             div(
-                                class = 'cv-item col-sm-8',
+                                class = 'container-fluid cv-item col-sm-8',
                                 h6('Programming')
                             ),
                             div(
-                                class = 'cv-year col-sm-4',
+                                class = 'container-fluid cv-year col-sm-4',
                             )
                         ),
                         div(
@@ -189,11 +205,11 @@ ui <- bootstrapPage(
                         div(
                             class = 'row container-fluid',
                             div(
-                                class = 'cv-item col-sm-8',
+                                class = 'container-fluid cv-item col-sm-8',
                                 h6('Technical')
                             ),
                             div(
-                                class = 'cv-year col-sm-4',
+                                class = 'container-fluid cv-year col-sm-4',
                             )
                         ),
                         div(
