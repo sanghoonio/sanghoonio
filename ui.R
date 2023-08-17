@@ -14,6 +14,8 @@ ui <- bootstrapPage(
     ),
     
     tags$head(tags$link(rel = 'icon', type = 'image/x-icon', href = '/favicon/favicon.ico')),
+    tags$head(tags$link(rel = 'icon', type = 'image/png', href = '/favicon/favicon-32x32.png')),
+    tags$head(tags$link(rel = 'icon', type = 'image/png', href = '/favicon/favicon-16x16.png')),
     tags$head(tags$link(rel = 'apple-touch-icon', sizes='180x180', href = '/favicon/apple-touch-icon.png"')),
     tags$head(tags$title('Sam Park')),
     
