@@ -8,6 +8,7 @@
 #
 
 library(shiny)
+library(shinyjs)
 library(bslib)
 
 options(shiny.port = 8080)
