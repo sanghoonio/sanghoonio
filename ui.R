@@ -10,10 +10,13 @@ ui <- bootstrapPage(
     tags$head(
         tags$link(rel = 'stylesheet', type = 'text/css', href = 'style.css')
     ),
-    tags$head(
-        # tags$link(rel = 'stylesheet', type = 'text/css', href = 'all.min.css')
-        tags$link(rel = 'stylesheet', type = 'text/css', href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css')
-    ),
+    # tags$head(
+    #     # tags$link(rel = 'stylesheet', type = 'text/css', href = 'all.min.css')
+    #     tags$link(rel = 'stylesheet', type = 'text/css', href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css')
+    # ),
+    
+    # tags$script(src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js'),
+    tags$script(src = 'toggle_collapse.js'),
     
     tags$head(tags$link(rel = 'icon', type = 'image/x-icon', href = '/favicon.ico')),
     tags$head(tags$link(rel = 'apple-touch-icon', sizes='180x180', href = '/apple-touch-icon.png')),
@@ -68,21 +71,17 @@ ui <- bootstrapPage(
                     role = 'tabpanel',
                     div(
                         class = 'col-sm-12',
+                        id = 'collapse_parent',
                         div(
                             class = 'row',
                             div(
-                                class = 'container-fluid col-sm-12',
-                                id = 'here',
-                                uiOutput('modal')
-                            )
-                        ),
-                        div(
-                            class = 'row',
-                            div(
-                                class = 'col-sm-4 portfolio-card',
-                                a(class = 'action-button shiny-bound-input',
+                                class = 'col-12 col-sm-4 order-1 portfolio-card',
+                                a(class = 'action-button shiny-bound-input portfolio-card-a',
                                   id = 'genomics',
-                                  href = '#',
+                                  href = '#collapse_genomics',
+                                  `data-bs-toggle` = 'collapse',
+                                  `aria-expanded` = 'false',
+                                  `aria-controls` = 'collapse_genomics',
                                   div(
                                       class = 'portfolio-card-body',
                                       img(class = 'card-img',
@@ -91,14 +90,20 @@ ui <- bootstrapPage(
                                       img(class = 'card-img-hover',
                                           src = 'graphics/graphics/graphics.004.png', 
                                       ),
+                                      img(class = 'card-img-hover-arrow',
+                                          src = 'graphics/graphics/graphics.005.png', 
+                                      ),
                                   ),
                                 ),
                             ),
                             div(
-                                class = 'col-sm-4 portfolio-card',
-                                a(class = 'action-button shiny-bound-input',
+                                class = 'col-12 col-sm-4 order-sm-2 order-3 portfolio-card',
+                                a(class = 'action-button shiny-bound-input portfolio-card-a',
                                   id = 'pharma',
-                                  href = '#',
+                                  href = '#collapse_pharma',
+                                  `data-bs-toggle` = 'collapse',
+                                  `aria-expanded` = 'false',
+                                  `aria-controls` = 'collapse_pharma',
                                   div(
                                       class = 'portfolio-card-body',
                                       img(class = 'card-img',
@@ -107,15 +112,21 @@ ui <- bootstrapPage(
                                       img(class = 'card-img-hover',
                                           src = 'graphics/graphics/graphics.004.png', 
                                       ),
+                                      img(class = 'card-img-hover-arrow',
+                                          src = 'graphics/graphics/graphics.005.png', 
+                                      ),
                                   ),
                                 ),
                             ),
                             
                             div(
-                                class = 'col-sm-4 portfolio-card',
-                                a(class = 'action-button shiny-bound-input',
+                                class = 'col-12 col-sm-4 order-sm-3 order-5 portfolio-card',
+                                a(class = 'action-button shiny-bound-input portfolio-card-a',
                                   id = 'metabolic',
-                                  href = '#',
+                                  href = '#collapse_metabolic',
+                                  `data-bs-toggle` = 'collapse',
+                                  `aria-expanded` = 'false',
+                                  `aria-controls` = 'collapse_metabolic',
                                   div(
                                       class = 'portfolio-card-body',
                                       img(class = 'card-img',
@@ -124,14 +135,42 @@ ui <- bootstrapPage(
                                       img(class = 'card-img-hover',
                                           src = 'graphics/graphics/graphics.004.png', 
                                       ),
+                                      img(class = 'card-img-hover-arrow',
+                                          src = 'graphics/graphics/graphics.005.png', 
+                                      ),
                                   ),
                                 ),
                             ),
+                            div(
+                                class = 'col-12 order-sm-4 order-2 portfolio-collapse',
+                                div(
+                                    class = 'collapse portfolio-collapse-body',
+                                    id = 'collapse_genomics',
+                                    `data-bs-parent` = '#collapse_parent',
+                                    p('haha genomics')
+                                )
+                            ),
+                            div(
+                                class = 'col-12 order-sm-5 order-4 portfolio-collapse',
+                                div(
+                                    class = 'collapse portfolio-collapse-body',
+                                    id = 'collapse_pharma',
+                                    `data-bs-parent` = '#collapse_parent',
+                                    p('haha pharma')
+                                )
+                            ),
+                            div(
+                                class = 'col-12 order-5 portfolio-collapse',
+                                div(
+                                    class = 'collapse portfolio-collapse-body',
+                                    id = 'collapse_metabolic',
+                                    `data-bs-parent` = '#collapse_parent',
+                                    p('haha metabolic')
+                                )
+                            ),
                         ),
-                        
                     )
                 )
-                
             )
         )
     )

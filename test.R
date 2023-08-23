@@ -5,7 +5,23 @@ library(magrittr)
 theme_test <- bs_theme(version = 5,
                        primary = "#d83e3e")
 
-ui <- navbarPage(title = "Test", theme = theme_test,
+ui <- navbarPage(title = "Test",
+                 
+                 tags$script(src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js'),
+                 tags$script(HTML("$(function () {
+
+    $(window).bind('resize', function () {
+        console.log($(this).width())
+        if ($(this).width() < 500) {
+            $('div').removeClass('yellow').addClass('red')
+        } else {
+            $('div').removeClass('red').addClass('yellow')
+        }
+    }).trigger('resize');
+})"
+                 )),
+                 
+                 
                  tabPanel("Plot",
                           sidebarLayout(
                               sidebarPanel(
@@ -14,6 +30,7 @@ ui <- navbarPage(title = "Test", theme = theme_test,
                                   )
                               ),
                               mainPanel(
+                                  div(class = 'yellow'),
                                   plotOutput("plot")
                               )
                           )
