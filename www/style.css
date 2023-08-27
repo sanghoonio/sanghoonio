@@ -36,40 +36,79 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+.home {
+    background-image: radial-gradient(circle at 10px 10px, #AAA 1px, transparent 0);
+    background-size: 27px 27px;
+}
+
 .body-container {
-    padding: 0;
+    padding: 0 0 30px 0;
     margin: 0;
-    min-height: calc(100vh - 200px);
+    min-height: calc(100vh - 179px);
     box-sizing: border-box;
 }
 
-@media (max-width: 576px) {
-    .sam img {
-        width: 100%;
-        
+@media (max-width: 768px) {
+    .body-image {
+        padding: 20px 0 0 0;
+    }
+    .body-header {
+        padding: 0;
+        text-align: left;
     }
 }
 
-@media (min-width: 576px) {
-    .sam img {
-          background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 1) 240px, rgba(255, 255, 255, 1) 290px), url('www/sam.png') no-repeat;
-
-        width: calc(100% + 120px);
-        margin-left: calc(-120px);
-        
+@media (min-width: 768px) and (max-width: 1200px) {
+    .body-image {
+        padding: 7vh 0 0 0;
+    }
+    .body-header {
+        padding: 3vh 0 0 0;
+        text-align: left;
     }
 }
 
-
-.body-header {
-    padding: 10vh 0 0 0;
-    text-align: left;
+@media (min-width: 1200px) {
+    .body-image {
+        padding: 3.5vh 0 0 0;
+    }
+    .body-header {
+        padding: 6vh 0 0 0;
+        text-align: left;
+    }
 }
 
-.body-text {
+.body-image img {
+    width: 80%;
+    transform: rotate(1deg);
+    margin: 0 auto;
+    display: block;
+}
+
+.body-about {
     padding: 0;
     text-align: left;
-    margin: 0px 0 10px 0;
+    margin: 0 0 40px 0;
+}
+
+.body-interests {
+    padding: 0;
+    text-align: left;
+    margin: 0 0 40px 0;
+}
+
+.body-interests p {
+    margin: 0;
+}
+
+.body-contact {
+    padding: 0;
+    text-align: left;
+    margin: 0 0 20px 0;
+}
+
+.body-contact a {
+    font-size: 1.5em;
 }
 
 .home {
@@ -84,7 +123,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .cv-header h2{
     margin-bottom: 0;
-    font-size: 5em;
+    font-size: 4em;
 }
 
 .cv-category {
@@ -115,7 +154,6 @@ h1, h2, h3, h4, h5, h6 {
     margin: 10px 0 5px 0;
 }
 
-
 @media (max-width: 576px) {
     .cv-year {
         padding: 0;
@@ -139,7 +177,7 @@ h1, h2, h3, h4, h5, h6 {
 .cv-details {
     padding: 0;
     text-align: left;
-    margin: 0px 0 10px 0;
+    margin: 0 0 10px 0;
 }
 
 .cv-details p {
@@ -151,11 +189,12 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 0 0 2em;
 }
 
+/* PORTFOLIO GRID */
 .portfolio {
-    padding: 10px 5vw 25px 5vw;
-    background-image: radial-gradient(circle at 10px 10px, #999 1px, transparent 0);
-    background-size: 30px 30px;
+    padding: 15px 5vw 25px 5vw;
     min-height: 100%;
+    background-image: radial-gradient(circle at 10px 10px, #AAA 1px, transparent 0);
+    background-size: 27px 27px;
 }
 
 .portfolio-card {
@@ -167,12 +206,20 @@ h1, h2, h3, h4, h5, h6 {
     float: left;
 }
 
+.portfolio-card-body .card-art {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 1;
+    width: 100%;
+}
+
 .portfolio-card-body .card-img-hover,
 .portfolio-card-body:hover .card-img-hover {
     position: absolute;
     left: 0;
     top: 0;
-    opacity: 0.1;
+    opacity: 0;
     width: 100%;
     transition: all 0.2s;
 }
@@ -187,8 +234,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .portfolio-card-body:hover .card-img-hover,
+.portfolio-card-a[aria-expanded="true"] .card-img-hover,
 .portfolio-card-a[aria-expanded="true"] .card-img-hover-arrow {
     opacity: 1;
+}
+
+.portfolio-card-body:hover .card-img,
+.portfolio-card-a[aria-expanded="true"] .card-img {
+    opacity: 0;
+    transition: all 0.33s
 }
 
 .portfolio-collapse-body {
