@@ -60,20 +60,20 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 768px) and (max-width: 1200px) {
     .body-image {
-        padding: 7vh 0 0 0;
+        padding: 6vw 0 0 0;
     }
     .body-header {
-        padding: 3vh 0 0 0;
+        padding: 3vw 0 0 0;
         text-align: left;
     }
 }
 
 @media (min-width: 1200px) {
     .body-image {
-        padding: 3.5vh 0 0 0;
+        padding: 3vw 0 0 0;
     }
     .body-header {
-        padding: 6vh 0 0 0;
+        padding: 6vw 0 0 0;
         text-align: left;
     }
 }
@@ -254,17 +254,22 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 0 10px 0;
 }
 
+
 .portfolio-collapse-body h1,
 .portfolio-collapse-body h2,
 .portfolio-collapse-body h3,
-.portfolio-collapse-body h4,
-.portfolio-collapse-body h5, 
-.portfolio-collapse-body h6 {
+.portfolio-collapse-body h4 {
     margin: 0 0 20px 0;
 }
 
+
+.portfolio-collapse-body h5,
+.portfolio-collapse-body h6 {
+    margin: 0 0 15px 0;
+}
+
 .portfolio-collapse-body p {
-    margin: 0;
+    margin: 0 0 15px 0;
 }
 
 @media (max-width: 768px) {
