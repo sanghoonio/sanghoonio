@@ -1,0 +1,13 @@
+GENE	DIPLOTYPE	PHENOTYPE   SUMMARY	ALLELE FUNCTION / ALLELE FUNCTION	ACTIVITY SCORE	EHR Priority Result Notation	CPIC Interpretation
+CYP2B6	*1/*1	Normal Metabolizer 	Normal function/Normal function	n/a	Normal/Routine/Low Risk	No reason to selectively adjust the dose of most medications that are metabolized by CYP2B6
+CYP2C19	*1/*2	Intermediate Metabolizer 	Normal function/No function	n/a	Abnormal/Priority/High Risk	May be at risk for an adverse or poor response to medications that are metabolized by CYP2C19. To avoid an untoward drug response, dose adjustments or alternative therapeutic agents may be necessary for medications metabolized by CYP2C19
+CYP2C9	*1/*1	Normal Metabolizer	Normal function/Normal function	2	Normal/Routine/Low Risk	No reason to adjust the dose of most medications that are affected by CYP2C9
+CYP2D6	*1/*10	Normal Metabolizer	Normal function/Decreased function	1.25	Normal/Routine/Low Risk	No reason to selectively adjust the dose of most medications that are metabolized by CYP2D
+CYP3A5	*3/*3	Poor Metabolizer	No function/No function	n/a	Normal/Routine/Low Risk	Expected to require standard tacrolimus dosing
+CYP4F2	*1/*1	Normal metabolism	Normal function/Normal function	n/a	n/a	May have decreased warfarin dosage requirements as compared to patients with the CT or TT genotype
+DPYD	*1/*5	Normal Metabolizer	Normal function/Normal function	2	Normal/Routine/Low Risk	No selective dose adjustment is indicated for medications that are metabolized by DPYD
+NAT2	*4/*4	Rapid Acetylator	Rapid function/Rapid function	n/a	n/a	No reason to selectively adjust the dose of most medications that are affected by NAT2
+NUDT15	*1/*1	Normal Metabolizer	Normal Function/Normal Function	n/a	Normal/Routine/Low Risk	Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression
+SLCO1B1	*37/*37	Normal Function	Normal function/Normal function	n/a	Normal/Routine/Low Risk	Typical myopathy risk and statin exposure. Prescribe desired starting dose and adjust doses based on disease-specific guidelines.
+TPMT	*1/*1	Normal Metabolizer	Normal Function/Normal Function	n/a	Normal/Routine/Low Risk	Lower concentrations of TGN metabolites, higher MeTIMP, this is the “normal” pattern. Normal risk of thiopurine-related leukopenia, neutropenia, myelosuppression.
+UGT1A1	*1/*80	Indeterminate	Normal function/Unknown Function	n/a	Normal/Routine/Low Risk	Expected phenotype for this patient cannot be determined currently based on the UGT1A1 diplotype result

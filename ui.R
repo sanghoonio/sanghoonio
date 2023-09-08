@@ -1,6 +1,6 @@
 library(shiny)
-library(bslib)
 library(shinyjs)
+library(bslib)
 
 ui <- bootstrapPage(
     

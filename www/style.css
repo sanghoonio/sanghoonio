@@ -60,7 +60,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (min-width: 768px) and (max-width: 1200px) {
     .body-image {
-        padding: 6vw 0 0 0;
+        padding: 5vw 0 0 0;
     }
     .body-header {
         padding: 3vw 0 0 0;
@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
         padding: 3vw 0 0 0;
     }
     .body-header {
-        padding: 6vw 0 0 0;
+        padding: 5vw 0 0 0;
         text-align: left;
     }
 }
@@ -263,9 +263,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-.portfolio-collapse-body h5,
-.portfolio-collapse-body h6 {
+.portfolio-collapse-body h5 {
     margin: 0 0 15px 0;
+}
+
+.portfolio-collapse-body h6 {
+    margin: 0;
 }
 
 .portfolio-collapse-body p {
@@ -295,25 +298,40 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .fig-container {
+    text-align: center;
     padding: 20px 0 30px 0;
 }
 
 .fig-container-bottom {
+    text-align: center;
     padding: 0px 0 30px 0;
+}
+
+.fig-container-npd {
+    text-align: center;
+    padding: 0;
+    margin: -20px 0 -5px 0;
 }
 
 .fig-div {
     text-align: center;
+    padding: 0;
 }
 
 .fig-side {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     display: block;
 }
 
 .fig-side-sm {
-    width: 80%;
+    width: 60%;
+    margin: 0 auto;
+    display: block;
+}
+
+.fig-side-lg {
+    width: 100%;
     margin: 0 auto;
     display: block;
 }
@@ -325,9 +343,61 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .fig-mid-sm {
-    width: 70%;
+    width: 50%;
     margin: 0 auto;
     display: block;
+}
+
+@media (max-width: 768px) {
+    .fig-side {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .fig-side-sm {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .fig-side-lg {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .fig-mid {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .fig-mid-sm {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+
+#pgx, #fh {
+    font-size: 0.6em;
+    width: 100%;
+    text-align: left;
+}
+
+.portfolio-container span {
+    font-size: 0.6em;
+    margin: -5px 0 40px 0;
+}
+
+.table-container {
+    text-align: center;
+}
+
+.caption-details p {
+    margin: 0;
 }
 
 /* OTHER */

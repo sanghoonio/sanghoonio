@@ -1,5 +1,6 @@
 library(shiny)
 library(shinyjs)
+library(data.table)
 
 server <- function(input, output, session) {
     
@@ -17,18 +18,89 @@ server <- function(input, output, session) {
                     p('Genomics and bioinformatics, as fields that offer insight into our molecular blueprints, lie at the forefront of modern medicine. Advancements in sequencing and computing technologies have allowed us to process individual genomes at a tiny fraction of the cost and time it took to do so several decades ago, making precision medicine accessible to more people than ever before. Unlike with traditional medicine, studying our genomes allows us to investigate how differences in our DNA and ancestry make us more susceptible to diseases ranging from hereditary cancers to neurological disorders, and also how our bodies react to and work with the medications used for treating those conditions. Doctors will be more readily able to prescribe targeted medications at appropriate dosages to reduce the risk of medication errors and improve treatment. We can also investigate how our genetics affect not only how traits such as blood pressure and cholesterol levels manifest physically but also how they affect our risk for more serious conditions and offer more personalized health guidelines that can be followed with confidence. The following sections outline what I have been able to explore in my time working with the NGS data pipeline at Predictiv Care.'),
                     h5('1. Understanding and processing the data'),
                     p('The size of the human genome in its entirety is about 3 billion nucleotides – 6 feet long when stretched out from a single cell, or about three to four gigabytes on a computer. Processing this data to give us the medically relevant findings in each genome through next generation sequencing involves several steps: '),
-                    p('a. The physical DNA sample is prepared and given to the sequencer. As the nucleotide bases are read in, the sequencer outputs raw data in the form of a .fastq file that includes base calls and their corresponding quality scores. It is important to keep in mind that when the sample is read by the sequencer, it is not read in as a single continuous chain of nucleotides but instead as many overlapping reads that result from amplifying DNA fragments as part of sample preparation. These raw and overlapping reads are then aligned to a reference human genome that allows to determine the correct positions of each nucleotide and the resulting full sequence of the entire sample. The resulting file is a .bam file, which contains information on the sample and the alignment details of each read.'),
+                    p('a. The physical DNA sample is prepared and given to the sequencer. As the nucleotide bases are read in, the sequencer outputs raw data in the form of a .fastq file that includes base calls and their corresponding quality scores. It is important to keep in mind that when the sample is read by the sequencer, it is not read in as a single continuous chain of nucleotides but instead as many separate reads that result from amplifying DNA fragments as part of library preparation. Cutting the DNA into fragments prior to sequencing allows the sequencer to read millions of smaller fragments at once, which brings the sequencing time for the human genome down from 13 years to a single day. In order to make these fragment reads usable, they must be aligned to a reference human genome that allows for determining the correct positions of each nucleotide and the resulting full sequence of the entire sample. The resulting file is a .bam file, which contains information on the sample and the alignment details of each read.'),
                     p('b. With a .bam file, the next step is to perform variant calling, which specifically looks for differences in the sample from the reference genome. The output from this step is a .vcf file, which contains all the genetic variants, usually in the form of single nucleotide polymorphisms (SNPs), in the sample. Finally, the last step is to annotate the .vcf file by associating each variant with biologically significant details such as the type of mutation it is and whether it is intronic or exonic, and also with more downstream details including the variant’s population frequency, predicted pathogenicity, or protein impact. One of the more important types of annotations is associating variants with the phenotypes they result in. Numerous studies have already published findings linking variants to phenotypes and conditions. Likewise, there are a few databases that aggregate these findings for many known phenotypes and databases include ClinVar, Human Phenotype Ontology (HPO), Monarch Disease Ontology (MONDO), and Online Mendelian Inheritance in Man (OMIM), which can simply be called to with API calls to associate phenotypes to variants present in a sample.'),
+                    
+                    div(
+                        class = 'row fig-container-npd',
+                        div(
+                            class = 'col-12 col-md-6 fig-div',
+                            img(class = 'fig-side-lg',
+                                src = 'graphics/figures/figures.001.png', 
+                            ),
+                        ),
+                        div(
+                            class = 'col-12 col-md-6 fig-div',
+                            img(class = 'fig-side-lg',
+                                src = 'graphics/figures/figures.002.png', 
+                            ),
+                        ),
+                        span(class = 'caption', 'Fig 1. Summary of NGS sequencing process'),
+                    ),
+                    
                     h5('2. Identifying key traits and health risks'),
                     p('Identifying key health risks from a DNA sample can be done with an annotated .vcf file and several clinical databases or references of variants that are known to be associated with traits and conditions. While samples can be annotated with the phenotypes they are associated with from databases like MONDO or OMIM, these databases do not classify the type or strength of association variants have with their phenotypes. Genetic variants can be as protective to a condition as they are pathogenic to, and so additional databases including ClinGen and American College of Medical Genetics (ACMG) need to supplement the annotations produced earlier. Depending on the number of and agreement between contributing studies for these variants, ClinGen and ACMG classify their variants into categories of association such as “pathogenic”, “protective”, “uncertain significance”, “affects”, “association”, or “benign”. As for associating these classifications to present variants in the sample, ACMG and ClinGen refer to databases like MONDO and OMIM as well and we can simply perform a match in between the sample and ACMG/ClinGen guidelines with ontology phenotype IDs to provide the classification.'),
+                    
+                    div(
+                        class = 'row fig-container-npd',
+                        div(
+                            class = 'col-12 fig-div',
+                            img(class = 'fig-mid',
+                                src = 'graphics/figures_wide/figures_wide.001.png', 
+                            ),
+                            span(class = 'caption', 'Fig 2. Additional .vcf annotation with ACMG and ClinGen'),
+                        ),
+                    ),
+                    
+                    br(),
                     h5('3. Applying pharmacogenomics guidelines'),
                     p('As with identifying genetic variants for health conditions, we can also identify variants in genes involved in drug metabolism and response. The Clinical Pharmacogenetics Implementation Consortium (CPIC) serves as a major resource for aggregating the clinical literature surrounding these variants. As of fall 2023, CPIC includes 16 genes in its guidelines and identifies specific variants for these genes with “star alleles”, which are named using a star (*) followed by a number (e.g., *1, *2, *3, etc.). The star allele nomenclature standardizes patterns of variants that occur across individuals and their studied impacts on individual drugs so that we can simply determine the star alleles for 16 CPIC genes in and individual and reference the guidelines to determine how an individual is likely to respond to specific drugs. In application, this can be accomplished by determining from the .vcf file which star alleles the sample possess, and then referencing from the CPIC guidelines the phenotypes of drug metabolism and response the matched star alleles correspond to.'),
+                    
+                    div(
+                        class = 'col-12 table-container',
+                        tableOutput('pgx'),
+                        
+                        div(
+                            class = 'caption-details text-start',
+                            p(strong('Plavix (Clopidogrel):'), 'Patients carrying the CYP2C19*2 allele in combination with a no, decreased, normal, or increased function allele who are treated with clopidogrel may have decreased platelet inhibition and increased residual platelet aggregation as compared to patients with two normal function alleles.'),
+                            p(strong('Strattera (Atomoxetine):'), 'Patients carrying the CYP2C19*2 allele in combination with a no, decreased, normal, or increased function allele may have decreased metabolism of dexlansoprazole as compared to patients with two normal function alleles.'),
+                        ),
+                        
+                        span(class = 'caption', 'Fig 3. Star allele calls from my DNA sample and matched CPIC guidelines'),
+                    ),
+                    
+                    br(),
                     h5('4. Exploring polygenic risk scores'),
                     p('The first two applications of genetic data are largely concerned with identifying the presence of known individual variants in samples and determining whether they contribute to health conditions or drug response traits in individuals. Polygenic risk scores are a relatively newer development in genomics and involve aggregating many variants correlated to a complex trait or expressed condition as a single numeric score that identifies the odds ratio of the individual possessing the overall trait or condition. While one’s risk for conditions such as breast cancer or coronary artery disease can be identified with some confidence with several variants in key genes, doing so in this way often does not maximize the risk explained for these conditions by genetics. Many complex phenotypes actually involve hundreds to thousands of genes, and given that many genes are not passed down in isolation but linked together due to their proximity on chromosomes, upwards of millions of variants can end up affecting a single phenotype. These variants are typically identified from genome-wide association studies (GWAS). We can then use algorithms such as LDpred2 or PRSice, which consider the linkage between genetic markers, to help estimate the contribution of each variant to the trait. From here, calculating one’s polygenic score for a given trait is as simple as adding up of the effect size of each variant multiplied by the number of alleles of that variant present in their genome. With population level data and metadata related to the trait of interest, we can then determine thresholds of scores that correlate to the occurrence or severity of that trait.'),
-                    h5('Special thanks to the team at Predictiv for providing the resources and opportunity to explore this field!'),
+                    
+                    div(
+                        class = 'col-12 table-container',
+                        tableOutput('fh'),
+                        
+                        div(
+                            class = 'caption-details text-center',
+                            p(strong('Polygenic score:'), '0.943'),
+                            p(strong('Decile 6:'), 'High risk for familial hypercholesterolemia of polygenic origin'),
+                        ),
+                        
+                        span(class = 'caption', 'Fig 4. Score and variants matched in my DNA for the 12-SNP familial hypercholesterolemia polygenic score'),
+                    ),
+                    
+                    br(),
+                    div(
+                        class = 'col-12 table-container',
+                        h5('Special thanks to the team at Predictiv for providing the resources and opportunity to explore this field!'),
+                    )
                     
                 )
             })
+            
+            pgx <- fread('data/Star_Alleles.PRDV-R9PM-K45D-5938.txt')
+            output$pgx <- renderTable(pgx, id = 'pgx', width = '100%')
+            
+            fh <- fread('data/PRDV-R9PM-K45D-5938_fh.txt')[1:12, 1:7]
+            output$fh <- renderTable(fh, id = 'fh', width = '100%')
+
             genomics_clicked(TRUE)
             print('genomics')
         }
@@ -48,7 +120,10 @@ server <- function(input, output, session) {
                     p('A major component of the automation system I worked with is involved in generating batch end reports through InfoBatch software for each batch. Each batch procedure can have several individual components such as homogenization, filtration, fermentation, or crystallization that each require their own reports to outline the history of the recipe as it was executed. The reports are the exact reports that inform of the success of each step in each recipe of each batch to the FDA. Ensuring that the data on the reports originates from the batches they are from and that the specifications and formatting of all the data are vital to communicate a batch meets quality assurance requirements and can be sold. I have also worked on several change controls involved in updating batch report formatting and configuration parameters to ensure they generate, are formatted properly, and include the necessary data with each batch.'),
                     h5('Data science'),
                     p('One of the side effects of collecting data from each manufacturing batch is the sheer amount of data that gets recorded over time. While some of it is used to report on the main details of each batch in batch end reports, the more specific points of data can be used to confirm events during the batch if the initial data shown on the batch reports indicate inconclusive results. This often requires using custom SQL queries or PI server calls to search the historian databases and writing reports to summarize the data, resulting in a major time sink for automation engineers as we receive over requests 500 for these reports annually as a team. As a solution to this, I was able to help produce an internal app that automates most of this process with R shiny and PI web API. It incorporates a simple user interface built with HTML/CSS/JS that takes in several parameters such as the name of the requested modules and timestamps as input and produces a report with all the requested data. The backend incorporates an R plumber API endpoint that automatically searches for the data that fit the requested parameters and plots the tables with proper report headings and details for a .pdf output.'),
-                    p('The data itself can also be used to facilitate proactive batch monitoring to help reduce the risk of downtime caused by failures. This not only reduces the overall failure rate of all batches and improves efficiency, but also frees up additional automation resources dedicated for diagnosing and correcting batch failures. Having seen that avoiding batch failures to keep the manufacturing process running continuously is the baseline priority of the automation team and that no existing system was in place to use past manufacturing data to forecast future downtime occurrences, I saw an opportunity to incorporate machine learning and time series modeling with our data. Batch downtime can always be traced back to a root cause, whether it has to do with fluctuations in critical process parameters such as tank pressure or temperature, malfunctions in equipment modules, or operator error. As such, any patterns in the data can be explored to see if they correlate with the occurrence of failures. With the end goal of using past data as an input to models that produce a real-time estimate of the odds of the current batch going into failure, I am exploring these patterns and correlations using data analysis techniques such as dimensionality reduction on batch summary statistics and regression modeling.'),
+                    p('The data itself can also be used to facilitate proactive batch monitoring to help reduce the risk of downtime caused by failures. This not only reduces the overall failure rate of all batches and improves efficiency, but also frees up additional automation resources dedicated for diagnosing and correcting batch failures. Having seen that avoiding batch failures to keep the manufacturing process running continuously is the baseline priority of the automation team and that no existing system was in place to use past manufacturing data to forecast future downtime occurrences, I saw an opportunity to incorporate machine learning and time series modeling with our data. Batch downtime can always be traced back to a root cause, whether it has to do with fluctuations in critical process parameters such as tank pressure or temperature, malfunctions in equipment modules, or operator error. As such, any patterns in the data can be explored to see if they correlate with the occurrence of failures. With the end goal of using past data as an input to models that produce a real-time estimate of the odds of the current batch going into failure, I am exploring these patterns and correlations using data analysis techniques such as dimensionality reduction on batch summary statistics and classification modeling.'),
+                    
+                    br(),
+                    h6('No pictures or figures here... Merck IP is confidential...'),
                     
                 )
             })
@@ -74,18 +149,18 @@ server <- function(input, output, session) {
                     div(
                         class = 'row fig-container',
                         div(
-                            class = 'col-6 fig-div',
-                            img(class = 'fig-side-sm',
+                            class = 'col-12 col-md-6 fig-div',
+                            img(class = 'fig-side',
                                 src = 'figures/volcano.png', 
                             ),
-                            span('Fig 1. Volcano plot quantifying gene expression fold changes')
+                            span(class = 'caption', 'Fig 1. Volcano plot quantifying gene expression fold changes')
                         ),
                         div(
-                            class = 'col-6 fig-div',
-                            img(class = 'fig-side-sm',
+                            class = 'col-12 col-md-6 fig-div',
+                            img(class = 'fig-side',
                                 src = 'figures/permanova_barplot.png', 
                             ),
-                            span('Fig 2. Bar plot for gene expression differences from PERMANOVA')
+                            span(class = 'caption', 'Fig 2. Bar plot for gene expression differences from PERMANOVA')
                         ),
                     ),
                     
@@ -99,7 +174,7 @@ server <- function(input, output, session) {
                             img(class = 'fig-mid-sm',
                                 src = 'figures/pca.png', 
                             ),
-                            span('Fig 3. PCA plot indicating variance in metabolism across all patient samples')
+                            span(class = 'caption', 'Fig 3. PCA plot indicating variance in metabolism across all patient samples')
                         ),
                     ),
                     
@@ -109,18 +184,18 @@ server <- function(input, output, session) {
                     div(
                         class = 'row fig-container',
                         div(
-                            class = 'col-6 fig-div',
-                            img(class = 'fig-side',
+                            class = 'col-12 col-md-6 fig-div',
+                            img(class = 'fig-side-sm',
                                 src = 'figures/violin_atp.png', 
                             ),
-                            span('Fig 4. Violin plot for ATP Synthase reaction.')
+                            span(class = 'caption', 'Fig 4. Violin plot for ATP Synthase reaction.')
                         ),
                         div(
-                            class = 'col-6 fig-div',
-                            img(class = 'fig-side',
+                            class = 'col-12 col-md-6 fig-div',
+                            img(class = 'fig-side-sm',
                                 src = 'figures/violin_gd.png', 
                             ),
-                            span('Fig 5. Violin plot for Glutamate Dehydrogenase reaction')
+                            span(class = 'caption', 'Fig 5. Violin plot for Glutamate Dehydrogenase reaction')
                         ),
                     ),
                     div(
@@ -130,7 +205,7 @@ server <- function(input, output, session) {
                             img(class = 'fig-mid-sm',
                                 src = 'figures/violin_glycolysis.png', 
                             ),
-                            span('Fig 6. Violin plots for Glycolysis reactions')
+                            span(class = 'caption', 'Fig 6. Violin plots for Glycolysis reactions')
                         ),
                     ),
                 )

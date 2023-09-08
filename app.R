@@ -10,6 +10,7 @@
 library(shiny)
 library(shinyjs)
 library(bslib)
+library(data.table)
 
 options(shiny.port = 8080)
 
