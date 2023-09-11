@@ -1,6 +1,6 @@
 /* FONTS */
 
-@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Cabin:wght@400;500;600;700&display=swap');
 
 /* MAIN */
 
@@ -187,6 +187,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .indent {
     padding: 0 0 0 2em;
+}
+
+.hand {
+    
+    padding: 10px 0 0 0;
+}
+
+.hand h3 {
+    font-family: 'Cabin Sketch', arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 /* PORTFOLIO GRID */
@@ -392,12 +403,16 @@ h1, h2, h3, h4, h5, h6 {
     margin: -5px 0 40px 0;
 }
 
-.table-container {
-    text-align: center;
+.predictiv-thanks {
+    padding: 30px 0;
 }
 
 .caption-details p {
     margin: 0;
+}
+
+.table-div {
+    overflow-x: auto;
 }
 
 /* OTHER */

@@ -89,6 +89,10 @@ ui <- bootstrapPage(
                         class = 'col-sm-12',
                         id = 'collapse_parent',
                         div(
+                            class = 'row text-center hand',
+                            h3('Notes to review:')
+                        ),
+                        div(
                             class = 'row',
                             div(
                                 class = 'col-12 col-md-4 order-1 portfolio-card',
