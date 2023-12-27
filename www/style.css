@@ -129,7 +129,7 @@ h1, h2, h3, h4, h5, h6 {
 .cv-category {
     padding: 10px 0 0 0;
     text-align: left;
-    margin-top: 35px;
+    margin-top: 25px;
     border-top: 3px solid #000;
 }
 
@@ -151,14 +151,14 @@ h1, h2, h3, h4, h5, h6 {
 .cv-item {
     padding: 0;
     text-align: left;
-    margin: 10px 0 5px 0;
+    margin: 10px 0 0 0;
 }
 
 @media (max-width: 576px) {
     .cv-year {
         padding: 0;
         text-align: left;
-        margin: 0 0 5px 0;
+        margin: 0 0 0 0;
     }
     
     .cv-year h6 {
@@ -170,14 +170,16 @@ h1, h2, h3, h4, h5, h6 {
     .cv-year {
         padding: 0;
         text-align: right;
-        margin: 10px 0 5px 0;
+        margin: 10px 0 0 0;
     }
 }
 
 .cv-details {
     padding: 0;
     text-align: left;
-    margin: 0 0 10px 0;
+    margin: 0 0 7px 0;
+    text-indent: -9.5px;
+    padding-left: 9.5px;
 }
 
 .cv-details p {
@@ -275,7 +277,9 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .portfolio-collapse-body h5 {
-    margin: 0 0 15px 0;
+    margin: 0 0 10px 0;
+    padding: 10px 0 0 0;
+
 }
 
 .portfolio-collapse-body h6 {
@@ -399,7 +403,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .portfolio-container span {
-    font-size: 0.6em;
+    font-size: 0.9em;
     margin: -5px 0 40px 0;
 }
 

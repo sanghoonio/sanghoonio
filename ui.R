@@ -22,6 +22,7 @@ ui <- bootstrapPage(
     tags$head(tags$link(rel = 'apple-touch-icon', sizes='180x180', href = '/apple-touch-icon.png')),
     tags$head(tags$link(rel = 'manifest', href = '/site.webmanifest')),
     tags$head(tags$title('Sam Park')),
+    tags$head(tags$meta(name='theme-color', content='#E9E4F2')),
     
     div(
         id = 'wrapper',
@@ -60,6 +61,10 @@ ui <- bootstrapPage(
                                 ),
                                 div(
                                     class = 'container-fluid body-contact',
+                                    a(
+                                        href = 'https://github.com/sanghoonio',
+                                        icon(name = 'square-github')
+                                    ),
                                     a(
                                         href = 'https://www.linkedin.com/in/sanghoonio/',
                                         icon(name = 'linkedin'),
