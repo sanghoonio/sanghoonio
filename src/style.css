@@ -63,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (min-width: 992px) {
   .page-width {
-    padding: 0 9.5em;
+    padding: 5em 9.5em;
   }
   .resume-year {
     margin-top: -1.25em;

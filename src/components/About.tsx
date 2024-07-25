@@ -21,10 +21,10 @@ const About: React.FC = () => {
 
       <h4 className='semiboldish pt-4'>Interests</h4>
       <div>
-        <p className='mb-0'>Genetics and Bioinformatics</p>
-        <p className='mb-0'>Data Science and Visualization</p>
+        <p className='mb-0'>Bioinformatics and Data Visualization</p>
         <p className='mb-0'>Design Intuition</p>
         <p className='mb-0'>Nature Observation</p>
+        <p className='mb-0'>Gardening</p>
       </div>
     </div>
   );
