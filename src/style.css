@@ -1,0 +1,86 @@
+/* FONTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap');
+
+/* MAIN */
+
+main, p, span, button, a {
+  font-family: 'Baloo 2', arial, sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Baloo 2', arial, sans-serif  !important;
+  font-weight: 450 !important;
+  font-style: normal  !important;
+}
+
+.bold {
+  font-family: 'Baloo 2', arial, sans-serif  !important;
+  font-weight: 650 !important;
+  font-style: normal !important;
+}
+
+.semibold {
+  font-family: 'Baloo 2', arial, sans-serif  !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+}
+
+.semiboldish {
+  font-family: 'Baloo 2', arial, sans-serif  !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+}
+
+.text-xs {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+}
+
+.no-transition {
+  transition: none !important;
+}
+
+.no-transition.collapsing {
+  transition: none !important;
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .page-width {
+    padding: 0;
+  }
+  .resume-year {
+    margin-top: 0;
+    float: none;
+    display: block;
+  }
+  .resume-text {
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .page-width {
+    padding: 0 9.5em;
+  }
+  .resume-year {
+    margin-top: -1.25em;
+    float: right;
+    display: inline;
+  }
+  .resume-text {
+    width: 88%;
+  }
+}
+
+.resume-body {
+  line-height: 1.25 !important;
+}
+
+.indent {
+  text-indent: -10px;
+  padding-left: 10px;
+}
+
