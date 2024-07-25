@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Portfolio: React.FC<Props> = () => {
+const Portfolio: React.FC = () => {
   
   return (
     // <div className='portfolio d-inline-flex gap-2'>

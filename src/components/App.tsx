@@ -8,15 +8,15 @@ import resumeData from '../assets/resume_data.json';
 import '../style.css';
 
 function App() {
-  const [activeCollapse, setActiveCollapse] = useState(null);
+  const [activeCollapse, setActiveCollapse] = useState('');
 
-  const handleButtonClick = (collapseId) => {
+  const handleButtonClick = (collapseId: string) => {
     const collapseDiv = document.getElementById(collapseId);
     setTimeout(() => {
-      if (collapseDiv.classList.contains('show')) {
+      if (collapseDiv?.classList.contains('show')) {
         setActiveCollapse(collapseId);
       } else {
-        setActiveCollapse(null);
+        setActiveCollapse('');
       }
     }, 5);
   };
