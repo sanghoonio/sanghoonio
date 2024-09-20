@@ -36,7 +36,7 @@ const Resume: React.FC<Props> = ({ resumeData }) => {
     <div className='resume'>
       <h4 className='fw-medium pb-4'>Sang-Hoon Park</h4>
       {Object.keys(resumeData).map((section, index) => (
-        <div className='' key={index}>
+        <div className='mb-3' key={index}>
           <h6 className='mb-0 mt-2 fw-semibold'>{section.charAt(0).toUpperCase() + section.slice(1)}</h6>
           {parseLines(resumeData[section as keyof ResumeData])}
         </div>
