@@ -16,24 +16,6 @@ h1, h2, h3, h4, h5, h6 {
   font-style: normal  !important;
 }
 
-.bold {
-  font-family: 'Baloo 2', arial, sans-serif  !important;
-  font-weight: 650 !important;
-  font-style: normal !important;
-}
-
-.semibold {
-  font-family: 'Baloo 2', arial, sans-serif  !important;
-  font-weight: 600 !important;
-  font-style: normal !important;
-}
-
-.semiboldish {
-  font-family: 'Baloo 2', arial, sans-serif  !important;
-  font-weight: 500 !important;
-  font-style: normal !important;
-}
-
 .text-xs {
   font-size: 0.75rem; /* 12px */
   line-height: 1rem; /* 16px */
@@ -82,5 +64,13 @@ h1, h2, h3, h4, h5, h6 {
 .indent {
   text-indent: -10px;
   padding-left: 10px;
+}
+
+.portfolio-card {
+  transition: all 150ms;
+}
+
+.portfolio-card:hover {
+  background-color: #e9ecef !important;
 }
 

@@ -66,7 +66,7 @@ function App() {
               </p>
             </div>
           ) : (
-            <div className='col-12 text-center p-0 mt-3 border-bottom border-dark'>
+            <div className='col-12 text-center pt-3 border-bottom border-dark'>
               <p className="d-inline-flex gap-2">
                 <button
                   className={`btn btn-outline-dark ${activeCollapse === 'about' ? 'active' : ''}`}
