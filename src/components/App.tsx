@@ -28,7 +28,7 @@ function App() {
           {!activeCollapse ? (
             <div className='col-12 text-center p-0' style={{ marginTop: '37vh' }}>
               <h1 className='mb-1'>Sam Park</h1>
-              <p className='pb-3'>Bioinformatics | Software | UI/UX</p>
+              <p className='pb-3'>Bioinformatics | Frontend | UI/UX</p>
               <p className="d-inline-flex gap-2">
                 <button
                   className={`btn btn-outline-dark ${activeCollapse === 'about' ? 'active' : ''}`}
@@ -66,7 +66,7 @@ function App() {
               </p>
             </div>
           ) : (
-            <div className='col-12 text-center pt-3 border-bottom border-dark'>
+            <div className='col-12 text-center pt-3 shadow-sm'>
               <p className="d-inline-flex gap-2">
                 <button
                   className={`btn btn-outline-dark ${activeCollapse === 'about' ? 'active' : ''}`}
