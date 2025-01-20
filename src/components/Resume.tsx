@@ -21,9 +21,9 @@ const parseLines = (section: string[]) => {
     } else if (/^[A-Za-z0-9]/.test(line)) {
       elements.push(<h6 key={index} className='my-0 pt-0 resume-body resume-text position-relative'>{line}</h6>);
     } else if (/^-/.test(line)) {
-      elements.push(<p key={index} className='my-0 p-0 ms-4 resume-body resume-text indent position-relative'>{line}</p>);
+      elements.push(<p key={index} className='my-0 py-0 pe-4 mx-4 resume-body resume-text indent position-relative'>{line}</p>);
     } else if (/^\s{2,}/.test(line)) {
-      elements.push(<p key={index} className='my-0 p-0 ps-4 ms-4 resume-body resume-text indent position-relative'>{line}</p>);
+      elements.push(<p key={index} className='my-0 py-0 px-4 mx-4 resume-body resume-text indent position-relative'>{line}</p>);
     }
   });
 
@@ -33,7 +33,7 @@ const parseLines = (section: string[]) => {
 const Resume: React.FC<Props> = ({ resumeData }) => {
   
   return (
-    <div className='resume'>
+    <>
       <h4 className='fw-medium pb-4'>Sang-Hoon Park</h4>
       {Object.keys(resumeData).map((section, index) => (
         <div className='mb-3' key={index}>
@@ -41,7 +41,7 @@ const Resume: React.FC<Props> = ({ resumeData }) => {
           {parseLines(resumeData[section as keyof ResumeData])}
         </div>
       ))}
-    </div>
+    </>
   );
 };
 

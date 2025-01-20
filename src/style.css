@@ -21,6 +21,10 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1rem; /* 16px */
 }
 
+.text-hover {
+  text-decoration-line: none;
+}
+
 .no-transition {
   transition: none !important;
 }
@@ -49,7 +53,11 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
   .topbar {
-    width: 100%;
+    width: calc(100% + 10vw);
+    backdrop-filter: blur(6px);
+    background-color: #ffffffbb;
+    margin: 0 -5vw;
+    padding: 0 5vw;
   }
   .content {
     width: 100%;
@@ -101,7 +109,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .indent {
   text-indent: -10px;
-  padding-left: 10px;
 }
 
 .portfolio-card {
