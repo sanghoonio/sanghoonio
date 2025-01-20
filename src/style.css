@@ -31,6 +31,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 992px) {
+  .page-padding {
+    padding: 0 5vw;
+  }
   .page-width {
     padding: 0;
   }
@@ -42,10 +45,29 @@ h1, h2, h3, h4, h5, h6 {
   .resume-text {
     width: 100%;
   }
+  .sidebar {
+    display: none;
+  }
+  .topbar {
+    width: 100%;
+  }
+  .content {
+    width: 100%;
+  }
+  .text-hover:hover {
+    text-decoration-line: none;
+  }
+  .d-flex {
+    flex-direction: column !important;
+  }
 }
 @media (min-width: 992px) {
+  .page-padding {
+    padding: 0 15vw;
+  }
   .page-width {
-    padding: 5em 9.5em;
+    padding-top: 5em;
+    padding-bottom: 5em;
   }
   .resume-year {
     margin-top: -1.25em;
@@ -55,10 +77,26 @@ h1, h2, h3, h4, h5, h6 {
   .resume-text {
     width: 88%;
   }
+  .sidebar {
+    width: 20%;
+  }
+  .topbar {
+    display: none;
+  }
+  .content {
+    width: 80%;
+  }
+  .text-hover:hover {
+    text-decoration-line: underline;
+  }
+  .d-flex {
+    flex-direction: row !important;
+  }
 }
 
 .resume-body {
   line-height: 1.25 !important;
+  font-size: .9rem;
 }
 
 .indent {
@@ -70,7 +108,17 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 150ms;
 }
 
-.portfolio-card:hover {
+.portfolio-card:hover,
+.nav-hover:hover {
   background-color: #e9ecef !important;
+}
+
+.dropdown-hover:hover {
+  color: #888;
+  transition: all 100ms;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 

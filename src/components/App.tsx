@@ -1,127 +1,96 @@
 import { useState } from 'react';
 
 import About from './About';
+import Journal from './Journal';
 import Resume from './Resume';
 import Portfolio from './Portfolio'
 
 import resumeData from '../assets/resume_data.json';
 import '../style.css';
 
-function App() {
-  const [activeCollapse, setActiveCollapse] = useState('');
+type NavLinkProps = {
+  page: string; 
+  title: string;
+  activePage: string;
+  setActivePage: (page: string) => void;
+  position: string;
+}
 
-  const handleButtonClick = (collapseId: string) => {
-    const collapseDiv = document.getElementById(collapseId);
-    setTimeout(() => {
-      if (collapseDiv?.classList.contains('show')) {
-        setActiveCollapse(collapseId);
-      } else {
-        setActiveCollapse('');
-      }
-    }, 5);
-  };
+const NavLink = (props: NavLinkProps) => {
+  const { page, title, activePage, setActivePage, position } = props;
+
+  return(
+    <p 
+      className={`mb-0 ${position === 'top' ? 'nav-hover cursor-pointer' : ''}`}
+      onClick={position === 'top' ? () => setActivePage(page) : undefined}
+    >
+      <span 
+        className={`text-hover cursor-pointer ${activePage === page ? 'text-dark fw-medium' : 'text-black-50'}`}
+        onClick={() => setActivePage(page)}
+      >
+        {title}
+        </span>
+    </p>
+  );
+};
+
+function App() {
+  const [activePage, setActivePage] = useState('about');
 
   return (
-    <div className='container' style={{ minHeight: '100vh', minWidth: '100vw' }}>
-      <div className='row'>
-        <div className='col-12 p-0 mb-4' id='parent'>
-          {!activeCollapse ? (
-            <div className='col-12 text-center p-0' style={{ marginTop: '37vh' }}>
-              <h1 className='mb-1'>Sam Park</h1>
-              <p className='pb-3'>Bioinformatics | Frontend | UI/UX</p>
-              <p className="d-inline-flex gap-2">
-                <button
-                  className={`btn btn-outline-dark ${activeCollapse === 'about' ? 'active' : ''}`}
-                  onClick={() => handleButtonClick('about')}
-                  type='button'
-                  data-bs-toggle='collapse'
-                  data-bs-target='#about'
-                  aria-expanded='false'
-                  aria-controls='about'
-                >
-                  About
-                </button>
-                <button
-                  className={`btn btn-outline-dark ${activeCollapse === 'resume' ? 'active' : ''}`}
-                  onClick={() => handleButtonClick('resume')}
-                  type='button'
-                  data-bs-toggle='collapse'
-                  data-bs-target='#resume'
-                  aria-expanded='false'
-                  aria-controls='resume'
-                >
-                  Resume
-                </button>
-                <button
-                  className={`btn btn-outline-dark ${activeCollapse === 'portfolio' ? 'active' : ''}`}
-                  onClick={() => handleButtonClick('portfolio')}
-                  type='button'
-                  data-bs-toggle='collapse'
-                  data-bs-target='#portfolio'
-                  aria-expanded='false'
-                  aria-controls='portfolio'
-                >
-                  Portfolio
-                </button>
-              </p>
-            </div>
-          ) : (
-            <div className='col-12 text-center pt-3 shadow-sm'>
-              <p className="d-inline-flex gap-2">
-                <button
-                  className={`btn btn-outline-dark ${activeCollapse === 'about' ? 'active' : ''}`}
-                  onClick={() => handleButtonClick('about')}
-                  type='button'
-                  data-bs-toggle='collapse'
-                  data-bs-target='#about'
-                  aria-expanded='false'
-                  aria-controls='about'
-                >
-                  About
-                </button>
-                <button
-                  className={`btn btn-outline-dark ${activeCollapse === 'resume' ? 'active' : ''}`}
-                  onClick={() => handleButtonClick('resume')}
-                  type='button'
-                  data-bs-toggle='collapse'
-                  data-bs-target='#resume'
-                  aria-expanded='false'
-                  aria-controls='resume'
-                >
-                  Resume
-                </button>
-                <button
-                  className={`btn btn-outline-dark ${activeCollapse === 'portfolio' ? 'active' : ''}`}
-                  onClick={() => handleButtonClick('portfolio')}
-                  type='button'
-                  data-bs-toggle='collapse'
-                  data-bs-target='#portfolio'
-                  aria-expanded='false'
-                  aria-controls='portfolio'
-                >
-                  Portfolio
-                </button>
-              </p>
-            </div>
-          )}
+    <div className='d-flex h-100 w-100 page-padding'>
 
-          <div className='collapse no-transition p-4' id='about' data-bs-parent='#parent'>
-            <div className='page-width'>
-              <About />
+      <div className='flex-0 sidebar'>
+        <div className='row page-width sticky-top'>
+          <div className='col-12 py-4'>
+            <img 
+              src='profile.png' 
+              width='132px' 
+              height='132px' 
+              alt='Hello!'
+              style={{ marginTop: '6px' }}
+            />
+            <h5 className='fw-medium mb-3'>Sam Park</h5>
+            <div className='col-12 text-start'>
+              <NavLink page={'about'} title={'About'} activePage={activePage} setActivePage={setActivePage} position='side'/>
+              <NavLink page={'journal'} title={'Journal'} activePage={activePage} setActivePage={setActivePage} position='side'/>
+              <NavLink page={'resume'} title={'Resume'} activePage={activePage} setActivePage={setActivePage} position='side'/>
+              <NavLink page={'portfolio'} title={'Portfolio'} activePage={activePage} setActivePage={setActivePage} position='side'/>
             </div>
-          </div>
-          <div className='collapse no-transition p-4' id='resume' data-bs-parent='#parent'>
-            <div className='page-width'>
-              <Resume resumeData={resumeData} />
-              </div>
-          </div>
-          <div className='collapse no-transition p-4 text-center' id='portfolio' data-bs-parent='#parent'>
-            <div className='page-width'>
-              <Portfolio />
-              </div>
           </div>
         </div>
       </div>
+
+      <div className='flex-0 topbar sticky-top'>
+        <div className='row page-width'>
+          <div className='col-12 p-4'>
+            <h5 className='d-inline fw-medium mb-3'>Sam Park</h5>
+            <span className='d-inline float-end cursor-pointer dropdown-hover' data-bs-toggle='dropdown' aria-expanded='false'>
+              <i className="bi bi-three-dots"></i>
+            </span>
+            <div className='dropdown-menu px-3'>
+              <NavLink page='about' title='About' activePage={activePage} setActivePage={setActivePage} position='top'/>
+              <NavLink page='journal' title='Journal' activePage={activePage} setActivePage={setActivePage} position='top'/>
+              <NavLink page='resume' title='Resume' activePage={activePage} setActivePage={setActivePage} position='top'/>
+              <NavLink page='portfolio' title='Portfolio' activePage={activePage} setActivePage={setActivePage} position='top'/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className='flex-1 content'>
+        <div className='row page-width'>
+          <div className='col-12 p-0 mb-4' id='parent'>
+            <div className='p-4' id='about'>
+              {activePage === 'about' && <About />}
+              {activePage === 'journal' && <Journal />}
+              {activePage === 'resume' && <Resume resumeData={resumeData} />}
+              {activePage === 'portfolio' && <Portfolio />}
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
   );
 }
