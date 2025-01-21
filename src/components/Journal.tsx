@@ -93,7 +93,7 @@ const Journal: React.FC = () => {
         <p>A collection of my thoughts...</p>
       </div>
       {posts.map(post => (
-        <JournalCard key={post.date} {...post} />
+        <JournalCard key={post.date} title={post.title} date={post.date} content={post.content} />
       ))}
     </>
   );

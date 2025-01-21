@@ -53,9 +53,9 @@ function Navbar() {
       <div className='flex-0 topbar sticky-top'>
         <div className='row page-width'>
           <div className='col-12 p-4'>
-            <h5 className='d-inline fw-medium mb-3 align-middle'>Sam Park</h5>
+            <h5 className='d-inline fw-medium mb-3'>Sam Park</h5>
             <span className='d-inline float-end cursor-pointer dropdown-hover' data-bs-toggle='dropdown' aria-expanded='false'>
-              <i className="bi bi-three-dots align-middle"></i>
+              <h5 className='bi bi-three-dots mb-0'></h5>
             </span>
             <div className='dropdown-menu px-3'>
               <NavLink page='about' title='About' position='top' currentPage={location}/>
