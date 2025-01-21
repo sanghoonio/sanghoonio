@@ -70,10 +70,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 @media (min-width: 992px) {
-  .page-width {
-    padding-top: 5em;
-    padding-bottom: 5em;
-  }
   .resume-year {
     margin-top: -1.25em;
     float: right;
@@ -102,10 +98,18 @@ h1, h2, h3, h4, h5, h6 {
   .page-padding {
     padding: 0 10vw;
   }
+  .page-width {
+    padding-top: 4em;
+    padding-bottom: 4em;
+  }
 }
 @media (min-width: 1200px) {
   .page-padding {
     padding: 0 15vw;
+  }
+  .page-width {
+    padding-top: 5em;
+    padding-bottom: 5em;
   }
 }
 
