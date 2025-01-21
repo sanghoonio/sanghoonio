@@ -10,12 +10,15 @@ type NavLinkProps = {
 const NavLink = (props: NavLinkProps) => {
   const { page, title, position, currentPage } = props;
 
-  return(
-    <p className={`mb-0 ${position === 'top' ? 'nav-hover cursor-pointer' : ''}`}>
-      <Link
-        className={`text-hover cursor-pointer ${currentPage === page ? 'text-dark fw-medium' : 'text-black-50'}`}
-        to={page}
-      >
+  if (position === 'top') return (
+    <Link className={`text-hover cursor-pointer ${currentPage === page ? 'text-dark fw-medium' : 'text-black-50'}`} to={page}>
+      <p className='mb-0 nav-hover cursor-pointer'>{title}</p>
+    </Link>
+  )
+
+  return (
+    <p className='mb-0'>
+      <Link className={`text-hover cursor-pointer ${currentPage === page ? 'text-dark fw-medium' : 'text-black-50'}`} to={page}>
         {title}
       </Link>
     </p>
