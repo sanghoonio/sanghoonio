@@ -1,14 +1,12 @@
 import React from 'react';
 
+import resumeData from '../assets/resume/resume_data.json';
+
 interface ResumeData {
   education: string[];
   experience: string[];
   projects: string[];
   skills: string[];
-}
-
-interface Props {
-  resumeData: ResumeData;
 }
 
 const parseLines = (section: string[]) => {
@@ -30,8 +28,8 @@ const parseLines = (section: string[]) => {
   return elements;
 };
 
-const Resume: React.FC<Props> = ({ resumeData }) => {
-  
+const Resume: React.FC = () => {
+
   return (
     <>
       <h4 className='fw-medium pb-4'>Sang-Hoon Park</h4>

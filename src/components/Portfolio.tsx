@@ -9,12 +9,12 @@ type PortfolioCardProps = {
 const PortfolioCard = (props: PortfolioCardProps) => {
   const { title, desc, link } = props;
 
-  return(
+  return (
     <div className='col-12'>
-      <a className='card portfolio-card d-block rounded-3 border bg-body-tertiary text-decoration-none' href={link} target='_blank' rel='noopener noreferrer'>
+      <a className='card portfolio-card d-block rounded-2 border bg-body-tertiary text-decoration-none' href={link} target='_blank' rel='noopener noreferrer'>
         <div className='card-body'>
           <h5 className='card-title fw-medium'>{title}</h5>
-          <p className='card-text'>{desc}</p>
+          <p className='card-text mb-0'>{desc}</p>
         </div>
       </a>
     </div>
@@ -25,6 +25,12 @@ const Portfolio: React.FC = () => {
   
   return (
     <>
+      <h4 className='fw-medium'>Projects</h4>
+      <div className='mb-5'>
+        <p>Below are some lab and personal projects I have worked on. Building on my earlier experiences with R Shiny, I am currently learning about web development with React + TypeScript and find developing intuitive and visually appealing interfaces to be very fun.</p>
+        <p>Lab collaborations are marked with [databio].</p>
+      </div>
+
       <div className='row text-start'>
         <p className='fw-medium mb-2'>React + TS</p>
       </div>

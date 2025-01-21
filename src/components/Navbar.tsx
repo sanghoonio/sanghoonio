@@ -26,8 +26,7 @@ const NavLink = (props: NavLinkProps) => {
 };
 
 function Navbar() {
-  let location = useLocation().pathname.substring(1);
-  if (location === '') location = 'about';
+  const location = useLocation().pathname.substring(1) || 'about';
 
   return (
     <>
