@@ -92,9 +92,11 @@ const Journal: React.FC = () => {
       <div className="mb-5">
         <p>A collection of my thoughts...</p>
       </div>
-      {posts.map(post => (
-        <JournalCard key={post.date} title={post.title} date={post.date} content={post.content} />
-      ))}
+      <div className='row text-start mb-5 g-2'>
+        {posts.map(post => (
+          <JournalCard key={post.date} title={post.title} date={post.date} content={post.content} />
+        ))}
+      </div>
     </>
   );
 };

@@ -11,9 +11,7 @@ const NavLink = (props: NavLinkProps) => {
   const { page, title, position, currentPage } = props;
 
   return(
-    <p 
-      className={`mb-0 ${position === 'top' ? 'nav-hover cursor-pointer' : ''}`}
-    >
+    <p className={`mb-0 ${position === 'top' ? 'nav-hover cursor-pointer' : ''}`}>
       <Link
         className={`text-hover cursor-pointer ${currentPage === page ? 'text-dark fw-medium' : 'text-black-50'}`}
         to={page}
@@ -57,7 +55,7 @@ function Navbar() {
             <span className='d-inline float-end cursor-pointer dropdown-hover' data-bs-toggle='dropdown' aria-expanded='false'>
               <h5 className='bi bi-three-dots mb-0'></h5>
             </span>
-            <div className='dropdown-menu px-3'>
+            <div className='dropdown-menu px-3 shadow border-0'>
               <NavLink page='about' title='About' position='top' currentPage={location}/>
               <NavLink page='journal' title='Journal' position='top' currentPage={location}/>
               <NavLink page='resume' title='Resume' position='top' currentPage={location}/>
