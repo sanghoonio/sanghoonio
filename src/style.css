@@ -13,7 +13,7 @@
     color: #eee !important;
   }
   body .text-dark {
-    color: #fff !important;
+    color: rgba(255, 255, 255, var(--bs-text-opacity)) !important;
   }
   body .text-black-50 {
     color: #aaa !important;
@@ -53,13 +53,12 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration-line: none;
 }
 
-.no-transition {
-  transition: none !important;
+.pagination-hover:hover {
+  --bs-text-opacity: .75 !important;
 }
 
-.no-transition.collapsing {
+.no-transition {
   transition: none !important;
-  display: none;
 }
 
 @media (max-width: 992px) {
@@ -168,3 +167,6 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 
+.cursor-default {
+  cursor: default;
+}
