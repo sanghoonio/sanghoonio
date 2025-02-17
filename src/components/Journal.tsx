@@ -13,18 +13,29 @@ type FrontMatter = {
   date: string;
 }
 
-const JournalCard = (props: Post) => {
-  const { title, date, contents } = props;
+const JournalCard = (props: Post & { isHighlighted: boolean }) => {
+  const { title, date, contents, isHighlighted } = props;
   
   const formattedDate = new Date(date).toISOString().split('T')[0];
+  
+  useEffect(() => {
+    // scroll highlighted element into view
+    if (isHighlighted) {
+      const element = document.getElementById(formattedDate);
+      if (element) {
+        element.classList.add('show');
+        element.parentElement?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }, [isHighlighted, formattedDate]);
 
   return (
     <div className='col-12'>
     <div 
-      className={`card portfolio-card d-block rounded-2 border bg-body-tertiary text-decoration-none cursor-pointer ${date}`}
+      className='card portfolio-card d-block rounded-2 border bg-body-tertiary text-decoration-none cursor-pointer'
       data-bs-toggle='collapse'
       data-bs-target={`#${formattedDate}`}
-      aria-expanded='false'
+      aria-expanded={isHighlighted ? 'true' : 'false'}
       aria-controls={formattedDate}
     >
       <div className='card-body'>
@@ -42,6 +53,7 @@ const JournalCard = (props: Post) => {
 const Journal: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [page, setPage] = useState(1);
+  const [highlightedDate, setHighlightedDate] = useState<string | null>(null);
 
   const handlePageClick = (newPage: number) => {
     setPage(newPage);
@@ -56,6 +68,24 @@ const Journal: React.FC = () => {
 
   const minPage = 1;
   const maxPage = Math.ceil(posts.length / postsPerPage);
+  
+  useEffect(() => {
+    // check url for highlighted post
+    const urlParams = new URLSearchParams(window.location.search);
+    const highlight = urlParams.get('highlight');
+    if (highlight) {
+      setHighlightedDate(highlight);
+      
+      // find which page the highlighted post is on
+      const postIndex = posts.findIndex(post => 
+        new Date(post.date).toISOString().split('T')[0] === highlight
+      );
+      if (postIndex !== -1) {
+        const targetPage = Math.floor(postIndex / postsPerPage) + 1;
+        setPage(targetPage);
+      }
+    }
+  }, [posts]); 
 
   useEffect(() => {
     const loadPosts = async () => {
@@ -96,9 +126,18 @@ const Journal: React.FC = () => {
         <p>A collection of my thoughts...</p>
       </div>
       <div className='row text-start mb-5 g-2'>
-        {postsToShow.map(post => (
-          <JournalCard key={post.date} title={post.title} date={post.date} contents={post.contents} />
-        ))}
+        {postsToShow.map(post => {
+          const formattedDate = new Date(post.date).toISOString().split('T')[0];
+          return (
+            <JournalCard 
+              key={post.date} 
+              title={post.title} 
+              date={post.date} 
+              contents={post.contents}
+              isHighlighted={formattedDate === highlightedDate}
+            />
+          );
+        })}
       </div>
 
       {maxPage > minPage && (
