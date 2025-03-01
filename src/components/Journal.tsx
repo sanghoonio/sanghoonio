@@ -16,6 +16,8 @@ type FrontMatter = {
 const JournalCard = (props: Post & { isHighlighted: boolean }) => {
   const { title, date, contents, isHighlighted } = props;
   
+  const [buttonText, setButtonText] = useState('Copy Link');
+  
   const formattedDate = new Date(date).toISOString().split('T')[0];
   
   useEffect(() => {
@@ -31,22 +33,37 @@ const JournalCard = (props: Post & { isHighlighted: boolean }) => {
 
   return (
     <div className='col-12'>
-    <div 
-      className='card portfolio-card d-block rounded-2 border bg-body-tertiary text-decoration-none cursor-pointer'
-      data-bs-toggle='collapse'
-      data-bs-target={`#${formattedDate}`}
-      aria-expanded={isHighlighted ? 'true' : 'false'}
-      aria-controls={formattedDate}
-    >
-      <div className='card-body'>
-        <h5 className='card-title fw-medium'>{title}</h5>
-        <p className='card-text mb-0'>{formattedDate}</p>
-        <div className='collapse mt-4 no-transition' id={formattedDate}>
-          <ReactMarkdown>{contents}</ReactMarkdown>
+      <div 
+        className='card portfolio-card d-block rounded-2 border bg-body-tertiary text-decoration-none cursor-pointer'
+        
+
+        aria-expanded={isHighlighted ? 'true' : 'false'}
+        aria-controls={formattedDate}
+      >
+        <div className='stretched-link' data-bs-toggle='collapse' data-bs-target={`#${formattedDate}`}></div>
+          <div className='card-body'>
+            <h5 className='card-title fw-medium'>{title}</h5>
+            <p className='card-text mb-0'>{formattedDate}</p>
+            <div className='collapse mt-4 no-transition' id={formattedDate}>
+              <ReactMarkdown>{contents}</ReactMarkdown>
+              <div className="d-flex">
+              <button 
+                className="btn btn-sm btn-outline-dark"
+                style={{ zIndex: 1 }}
+                onClick={() => {
+                  navigator.clipboard.writeText(`https://sanghoon.io/journal?highlight=${formattedDate}`)
+                  setButtonText('Copied!');
+                  setTimeout(() => setButtonText('Share Link'), 1000);
+                }}
+              >
+                <i className='bi bi-reply-fill me-1' style={{ transform: 'scale(-1, 1)', display: 'inline-block' }}></i>
+                {buttonText}
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   );
 };
 
