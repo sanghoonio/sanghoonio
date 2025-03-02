@@ -9,6 +9,15 @@
     color: #eee !important;
     background-color: #000 !important;
   }
+  .btn-dark {
+    color: #eee !important;
+    background-color: #333 !important;
+    border-color: #333 !important;
+  }
+  .btn-dark:hover {
+    background-color: #222 !important;
+    border-color: #222 !important;
+  }
   main, p, span, button, a, ul, li, i, .card-title {
     color: #eee !important;
   }
@@ -29,6 +38,18 @@
   }
   .topbar {
     background-color: #000000bb !important;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .btn-dark {
+    color: #212529 !important;
+    background-color: #e9ecef !important;
+    border-color: #e9ecef !important;
+  }
+  .btn-dark:hover {
+    background-color: #f8f9fa !important;
+    border-color: #f8f9fa !important;
   }
 }
 

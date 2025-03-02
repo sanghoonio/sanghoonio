@@ -48,12 +48,12 @@ const JournalCard = (props: Post & { isHighlighted: boolean }) => {
               <ReactMarkdown>{contents}</ReactMarkdown>
               <div className="d-flex">
               <button 
-                className="btn btn-sm btn-outline-dark"
+                className="btn btn-sm btn-dark"
                 style={{ zIndex: 1 }}
                 onClick={() => {
                   navigator.clipboard.writeText(`https://sanghoon.io/journal?highlight=${formattedDate}`)
                   setButtonText('Copied!');
-                  setTimeout(() => setButtonText('Share Link'), 1000);
+                  setTimeout(() => setButtonText('Copy Link'), 1000);
                 }}
               >
                 <i className='bi bi-reply-fill me-1' style={{ transform: 'scale(-1, 1)', display: 'inline-block' }}></i>
