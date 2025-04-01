@@ -38,7 +38,7 @@ function Navbar() {
               width='132px' 
               height='132px' 
               alt='Hello!'
-              style={{ marginTop: '6px' }}
+              style={{ marginTop: '5.5px' }}
             />
             <h5 className='fw-medium mb-3'>Sam Park</h5>
             <div className='col-12 text-start'>

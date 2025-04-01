@@ -32,7 +32,10 @@ const Resume: React.FC = () => {
 
   return (
     <>
-      <h4 className='fw-medium pb-4'>Sang-Hoon Park</h4>
+      <div className='d-flex justify-content-between pb-4 mb-2 resume-header'>
+        <h4 className='fw-medium mb-0'>Sang-Hoon Park</h4>
+        <a className='btn btn-sm btn-dark' href='resume.pdf' download='resume.pdf'>Download</a>
+      </div>
       {Object.keys(resumeData).map((section, index) => (
         <div className='mb-3' key={index}>
           <h6 className='mb-0 mt-2 fw-semibold'>{section.charAt(0).toUpperCase() + section.slice(1)}</h6>

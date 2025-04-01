@@ -71,7 +71,7 @@ parse_resume_pdf <- function(pdf_path) {
 }
 
 # Parse the PDF
-resume_data <- parse_resume_pdf('resume.pdf')
+resume_data <- parse_resume_pdf('../../../public/resume.pdf')
 
 # Convert to JSON and save
 json_data <- toJSON(resume_data, pretty = TRUE)

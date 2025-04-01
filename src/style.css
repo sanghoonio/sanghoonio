@@ -161,6 +161,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.resume-header.d-flex {
+  flex-direction: row !important;
+}
+
 .resume-body {
   line-height: 1.25 !important;
   font-size: .9rem;
