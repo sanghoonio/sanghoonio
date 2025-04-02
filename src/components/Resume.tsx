@@ -34,7 +34,9 @@ const Resume: React.FC = () => {
     <>
       <div className='d-flex justify-content-between pb-4 mb-2 resume-header'>
         <h4 className='fw-medium mb-0'>Sang-Hoon Park</h4>
-        <a className='btn btn-sm btn-dark' href='resume.pdf' download='resume.pdf'>Download</a>
+        <a className='cursor-pointer' href='resume.pdf' download='resume.pdf'>
+          <h4 className='bi bi-file-earmark-arrow-down text-dark' />
+        </a>
       </div>
       {Object.keys(resumeData).map((section, index) => (
         <div className='mb-3' key={index}>
