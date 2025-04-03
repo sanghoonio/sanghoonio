@@ -113,9 +113,6 @@ h1, h2, h3, h4, h5, h6 {
   .text-hover:hover {
     text-decoration-line: none;
   }
-  .d-flex {
-    flex-direction: column !important;
-  }
 }
 @media (min-width: 992px) {
   .resume-year {
@@ -138,9 +135,6 @@ h1, h2, h3, h4, h5, h6 {
   .text-hover:hover {
     text-decoration-line: underline;
   }
-  .d-flex {
-    flex-direction: row !important;
-  }
 }
 @media (min-width: 992px) and (max-width: 1200px) {
   .page-padding {
@@ -159,10 +153,6 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 5em;
     padding-bottom: 5em;
   }
-}
-
-.resume-header.d-flex {
-  flex-direction: row !important;
 }
 
 .resume-body {

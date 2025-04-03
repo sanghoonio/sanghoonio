@@ -35,8 +35,6 @@ const JournalCard = (props: Post & { isHighlighted: boolean }) => {
     <div className='col-12'>
       <div 
         className='card portfolio-card d-block rounded-2 border bg-body-tertiary text-decoration-none cursor-pointer'
-        
-
         aria-expanded={isHighlighted ? 'true' : 'false'}
         aria-controls={formattedDate}
       >
@@ -46,19 +44,19 @@ const JournalCard = (props: Post & { isHighlighted: boolean }) => {
             <p className='card-text mb-0'>{formattedDate}</p>
             <div className='collapse mt-4 no-transition' id={formattedDate}>
               <ReactMarkdown>{contents}</ReactMarkdown>
-              <div className="d-flex">
-              <button 
-                className="btn btn-sm btn-dark"
-                style={{ zIndex: 1 }}
-                onClick={() => {
-                  navigator.clipboard.writeText(`https://sanghoon.io/journal?highlight=${formattedDate}`)
-                  setButtonText('Copied!');
-                  setTimeout(() => setButtonText('Copy Link'), 1000);
-                }}
-              >
-                <i className='bi bi-reply-fill me-1' style={{ transform: 'scale(-1, 1)', display: 'inline-block' }}></i>
-                {buttonText}
-              </button>
+              <div className="d-flex flex-column flex-lg-row">
+                <button 
+                  className="btn btn-sm btn-dark"
+                  style={{ zIndex: 1 }}
+                  onClick={() => {
+                    navigator.clipboard.writeText(`https://sanghoon.io/journal?highlight=${formattedDate}`)
+                    setButtonText('Copied!');
+                    setTimeout(() => setButtonText('Copy Link'), 1000);
+                  }}
+                >
+                  <i className='bi bi-reply-fill me-1' style={{ transform: 'scale(-1, 1)', display: 'inline-block' }}></i>
+                  {buttonText}
+                </button>
             </div>
           </div>
         </div>
@@ -158,7 +156,7 @@ const Journal: React.FC = () => {
       </div>
 
       {maxPage > minPage && (
-        <div className='d-flex justify-content-center'>
+        <div className='d-flex flex-column flex-lg-row justify-content-center'>
           <span onClick={() => setPage(Math.max(page - 1, minPage))}>
             <h5 className={`text-dark bi bi-arrow-left-short me-1 cursor-pointer ${page === minPage && 'invisible'}`} /> 
           </span>

@@ -14,7 +14,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
-    <div className='d-flex h-100 w-100 page-padding'>
+    <div className='d-flex flex-column flex-lg-row h-100 w-100 page-padding'>
       <Navbar />
       <div className='flex-1 content'>
         <div className='row page-width'>
