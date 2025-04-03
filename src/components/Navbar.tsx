@@ -40,7 +40,7 @@ function Navbar() {
               alt='Hello!'
               style={{ marginTop: '5px' }}
             />
-            <Link to="/about" className="text-decoration-none text-dark">
+            <Link to='' className='text-decoration-none text-dark'>
               <h5 className='fw-medium mb-3 mt-1'>Sam Park</h5>
             </Link>
             <div className='col-12 text-start'>
@@ -56,7 +56,7 @@ function Navbar() {
       <div className='flex-0 topbar sticky-top'>
         <div className='row page-width'>
           <div className='col-12 p-4'>
-            <Link to="/about" className="text-decoration-none text-dark">
+            <Link to='' className='text-decoration-none text-dark'>
               <h5 className='d-inline fw-medium mb-3'>Sam Park</h5>
             </Link>
             <span className='d-inline float-end cursor-pointer dropdown-hover' data-bs-toggle='dropdown' aria-expanded='false'>
