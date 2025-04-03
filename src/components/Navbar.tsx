@@ -35,12 +35,14 @@ function Navbar() {
           <div className='col-12 py-4'>
             <img 
               src='profile.png' 
-              width='132px' 
-              height='132px' 
+              width='131px' 
+              height='131px' 
               alt='Hello!'
-              style={{ marginTop: '5.5px' }}
+              style={{ marginTop: '5px' }}
             />
-            <h5 className='fw-medium mb-3'>Sam Park</h5>
+            <Link to="/about" className="text-decoration-none text-dark">
+              <h5 className='fw-medium mb-3 mt-1'>Sam Park</h5>
+            </Link>
             <div className='col-12 text-start'>
               <NavLink page={'about'} title={'About'} position='side' currentPage={location}/>
               <NavLink page={'journal'} title={'Journal'} position='side' currentPage={location}/>
@@ -54,7 +56,9 @@ function Navbar() {
       <div className='flex-0 topbar sticky-top'>
         <div className='row page-width'>
           <div className='col-12 p-4'>
-            <h5 className='d-inline fw-medium mb-3'>Sam Park</h5>
+            <Link to="/about" className="text-decoration-none text-dark">
+              <h5 className='d-inline fw-medium mb-3'>Sam Park</h5>
+            </Link>
             <span className='d-inline float-end cursor-pointer dropdown-hover' data-bs-toggle='dropdown' aria-expanded='false'>
               <h5 className='bi bi-three-dots mb-0'></h5>
             </span>
