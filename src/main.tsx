@@ -33,5 +33,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       </div>
 
     </div>
-  </BrowserRouter>,
+  </BrowserRouter>
 )

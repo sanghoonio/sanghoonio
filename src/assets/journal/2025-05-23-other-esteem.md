@@ -1,0 +1,8 @@
+---
+title: Other Esteem
+date: 2025-05-23
+---
+
+**Self Esteem is Other Esteem**
+
+A bunch of postmodern self help resources and keyboard warrior "therapists" like to say self esteem and confidence need to come from within. Implying that they just arise in a vacuum within everyone and that if you're insecure, you just didn't find it in you yet. That is absolute horse shit. In a healthy society, people feel a sense of belonging **because** they uplift each other. The love, care, and respect people have for one another is necessary for a society to be healthy, precisely because your own self esteem is derived from others. The confidence you have in yourself to be decent manifests as **genuine** kindness and altruism in how you treat people, and those on the receiving end have their own self esteem lifted in a way that continues to propagate. If you solely look within, you'll find yourself spending a lifetime looking for something another person needs to gift you. It is something that cannot be forced individualistically, and many nowadays are not lucky enough to have others to propagate esteem to them in a way that lets them propagate it to others. The less esteem one receives, the harder it is for them to receive it in the future, because they forget what it really means to have and share it. In a narcissistic society, self esteem has no meaning because the concept of the other does not exist, and we are all obsessively disconnected and looking within ourselves to find something that isn't there. True self esteem rises, when others give esteem to you and when you can give it back. In that sense, self esteem is not self esteem at all. It is other esteem.
