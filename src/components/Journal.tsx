@@ -156,9 +156,9 @@ const Journal: React.FC = () => {
       </div>
 
       {maxPage > minPage && (
-        <div className='d-flex flex-column flex-lg-row justify-content-center'>
+        <div className='d-flex flex-row justify-content-center'>
           <span onClick={() => setPage(Math.max(page - 1, minPage))}>
-            <h5 className={`text-dark bi bi-arrow-left-short me-1 cursor-pointer ${page === minPage && 'invisible'}`} /> 
+            <h5 className={`text-dark bi bi-arrow-left-short me-1 cursor-pointer ${page === minPage && 'd-none'}`} /> 
           </span>
 
           {/* {page > minPage + 2 && (
@@ -168,13 +168,13 @@ const Journal: React.FC = () => {
             </>
           )} */}
 
-          {page > minPage + 1 && <span className='mx-2 text-dark text-opacity-50 pagination-hover cursor-pointer' onClick={() => handlePageClick(page - 2)}>{page - 2}</span>}
-          {page > minPage && <span className='mx-2 text-dark text-opacity-50 pagination-hover cursor-pointer' onClick={() => handlePageClick(page - 1)}>{page - 1}</span>}
+          {page > minPage + 1 && <span className='mx-2 text-dark text-opacity-50 pagination-hover cursor-pointer d-inline-block' onClick={() => handlePageClick(page - 2)}>{page - 2}</span>}
+          {page > minPage && <span className='mx-2 text-dark text-opacity-50 pagination-hover cursor-pointer d-inline-block' onClick={() => handlePageClick(page - 1)}>{page - 1}</span>}
 
-          <span className='mx-2 fw-bold cursor-pointer' onClick={() => setPage(page)}>{page}</span>
+          <span className='mx-2 fw-bold cursor-pointer d-inline-block' onClick={() => setPage(page)}>{page}</span>
 
-          {page < maxPage && <span className='mx-2 text-dark text-opacity-50 pagination-hover cursor-pointer' onClick={() => handlePageClick(page + 1)}>{page + 1}</span>}
-          {page < maxPage - 1 && <span className='mx-2 text-dark text-opacity-50 pagination-hover cursor-pointer' onClick={() => handlePageClick(page + 2)}>{page + 2}</span>}
+          {page < maxPage && <span className='mx-2 text-dark text-opacity-50 pagination-hover cursor-pointer d-inline-block' onClick={() => handlePageClick(page + 1)}>{page + 1}</span>}
+          {page < maxPage - 1 && <span className='mx-2 text-dark text-opacity-50 pagination-hover cursor-pointer d-inline-block' onClick={() => handlePageClick(page + 2)}>{page + 2}</span>}
 
           {/* {page < maxPage - 2 && (
             <>
@@ -184,7 +184,7 @@ const Journal: React.FC = () => {
           )} */}
 
           <span onClick={() => setPage(Math.min(page + 1, maxPage))}>
-            <h5 className={`text-dark bi bi-arrow-right-short ms-1 cursor-pointer ${page === maxPage && 'invisible'}`} />
+            <h5 className={`text-dark bi bi-arrow-right-short ms-1 cursor-pointer d-inline-block ${page === maxPage && 'd-none'}`} />
           </span>
         </div>
       )}
