@@ -38,7 +38,7 @@ const Portfolio: React.FC = () => {
         <PortfolioCard title='PEPhub' desc='a biological metadata management suite [databio]' link='https://pephub.databio.org' />
         <PortfolioCard title='BEDbase' desc='a centralized platform for genomic region data [databio]' link='https://bedbase.org' />
         <PortfolioCard title='Refgenie' desc="a standardized genome asset management system [databio]" link='https://ui.refgenie.org' />
-        <PortfolioCard title='Tessera' desc="an intuitive and aesthetic interface for single-cell data" link='https://sanghoon.io/tessera' />
+        <PortfolioCard title='Tessera' desc="an intuitive interface for single-cell data" link='https://sanghoon.io/tessera' />
         <PortfolioCard title='Cigareditte' desc="scrolling social media feeds is like smoking an infinite cigarette. what if the cigarettes weren't infinite anymore?" link='https://sanghoon.io/cigareditte' />
         {/* <PortfolioCard title='Constellations' desc='a social media concept inspired by the cosmos' link='https://sanghoonio.github.io/constellations/' /> */}
       </div>

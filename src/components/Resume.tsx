@@ -5,7 +5,7 @@ import resumeData from '../assets/resume/resume_data.json';
 interface ResumeData {
   education: string[];
   experience: string[];
-  projects: string[];
+  // projects: string[];
   skills: string[];
 }
 
@@ -16,12 +16,16 @@ const parseLines = (section: string[]) => {
   lines.forEach((line, index) => {
     if (/^\d{4,}/.test(line)) {
       elements.push(<h6 key={index} className='mb-0 pt-0 resume-body resume-year position-relative'>{line}</h6>);
-    } else if (/^[A-Za-z0-9]/.test(line)) {
+    } else if (/^Master of Science/.test(line)) {
       elements.push(<h6 key={index} className='my-0 pt-0 resume-body resume-text position-relative'>{line}</h6>);
+    } else if (/^Bachelor of Science/.test(line)) {
+      elements.push(<h6 key={index} className='my-0 pt-0 resume-body resume-text position-relative'>{line}</h6>);
+    } else if (/^[A-Za-z0-9]/.test(line)) {
+      elements.push(<h6 key={index} className='my-0 pt-0 resume-body resume-text position-relative mt-1'>{line}</h6>);
     } else if (/^-/.test(line)) {
       elements.push(<p key={index} className='my-0 py-0 pe-4 mx-4 resume-body resume-text indent position-relative'>{line}</p>);
     } else if (/^\s{2,}/.test(line)) {
-      elements.push(<p key={index} className='my-0 py-0 px-4 mx-4 resume-body resume-text indent position-relative'>{line}</p>);
+      elements.push(<p key={index} className='my-0 py-0 px-4 mx-4 resume-body resume-text resume-sm indent position-relative'>{line}</p>);
     }
   });
 

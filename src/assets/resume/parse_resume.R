@@ -20,7 +20,7 @@ parse_resume_pdf <- function(pdf_path) {
     # contact = character(),
     education = character(),
     experience = character(),
-    projects = character(),
+    # projects = character(),
     skills = character()
   )
   
