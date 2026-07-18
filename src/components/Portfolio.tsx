@@ -16,7 +16,6 @@ type PortfolioGroup = {
 
 type PortfolioData = {
   intro: string;
-  note: string;
   groups: PortfolioGroup[];
 };
 
@@ -29,7 +28,6 @@ const Portfolio: React.FC = () => {
       <h4 className='fw-medium'>Portfolio</h4>
       <div className='mb-5'>
         <p>{portfolio.intro}</p>
-        <p>{portfolio.note}</p>
       </div>
 
       <div className='portfolio-list'>

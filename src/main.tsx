@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
     <div className='d-flex flex-column flex-lg-row h-100 w-100 page-padding'>
       <Navbar />
-      <div className='flex-1 content'>
+      <div className='flex-fill content'>
         <div className='row page-width'>
           <div className='col-12 p-4 mb-4'>
 

@@ -30,7 +30,7 @@ function Navbar() {
 
   return (
     <>
-      <div className='flex-0 sidebar'>
+      <div className='sidebar'>
         <div className='row page-width sticky-top'>
           <div className='col-12 py-4'>
             <img 
@@ -53,7 +53,7 @@ function Navbar() {
         </div>
       </div>
 
-      <div className='flex-0 topbar sticky-top'>
+      <div className='topbar sticky-top'>
         <div className='row page-width'>
           <div className='col-12 p-4'>
             <Link to='' className='text-decoration-none text-dark'>

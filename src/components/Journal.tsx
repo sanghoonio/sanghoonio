@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import frontMatter from 'front-matter';
 
@@ -12,6 +12,25 @@ type FrontMatter = {
   title: string;
   date: string;
 }
+
+// Journal entries are bundled at build time (eager glob), so posts can be
+// resolved once at module load — no async, no empty-then-filled re-render.
+const markdownFiles = import.meta.glob('../assets/journal/*.md', {
+  eager: true,
+  query: '?raw',
+  import: 'default'
+});
+
+const posts: Post[] = Object.values(markdownFiles)
+  .map((content) => {
+    const { attributes: frontmatter, body: contents } = frontMatter<FrontMatter>(content as string);
+    return {
+      title: frontmatter.title || 'Untitled',
+      date: frontmatter.date,
+      contents: contents.trim()
+    };
+  })
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 const JournalCard = (props: Post & { isHighlighted: boolean }) => {
   const { title, date, contents, isHighlighted } = props;
@@ -52,13 +71,14 @@ const JournalCard = (props: Post & { isHighlighted: boolean }) => {
 };
 
 const Journal: React.FC = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [highlightedDate, setHighlightedDate] = useState<string | null>(null);
+  // Highlighted entry comes from the ?highlight=YYYY-MM-DD query param (shared links).
+  // Available synchronously at first render, so it's derived rather than set in an effect.
+  const highlightedDate = new URLSearchParams(window.location.search).get('highlight');
 
   // Pagination — commented out for now.
   // To restore: re-add the state/vars below, render `postsToShow` instead of `posts`,
-  // uncomment the pagination controls in the JSX, and restore the page-jump logic in the
-  // highlight effect (find the post's index and setPage to its page).
+  // uncomment the pagination controls in the JSX, and add page-jump logic (find the
+  // highlighted post's index and setPage to its page).
   // const [page, setPage] = useState(1);
   // const postsPerPage = 5;
   // const postIndex = (page - 1) * postsPerPage;
@@ -71,47 +91,6 @@ const Journal: React.FC = () => {
   //     (el as HTMLElement).style.setProperty('--bs-text-opacity', '0.5', 'important');
   //   });
   // };
-
-  useEffect(() => {
-    // check url for highlighted post
-    const urlParams = new URLSearchParams(window.location.search);
-    const highlight = urlParams.get('highlight');
-    if (highlight) {
-      setHighlightedDate(highlight);
-    }
-  }, []);
-
-  useEffect(() => {
-    const loadPosts = async () => {
-      try {
-        const markdownFiles = import.meta.glob('../assets/journal/*.md', {
-          eager: true,
-          query: '?raw',
-          import: 'default'
-        });
-
-        const loadedPosts = await Promise.all(
-          Object.entries(markdownFiles).map(async ([_, content]) => {
-            const { attributes: frontmatter, body: contents } = frontMatter<FrontMatter>(content as string);
-
-            return {
-              title: frontmatter.title || 'Untitled',
-              date: frontmatter.date,
-              contents: contents.trim()
-            };
-          })
-        );
-
-        setPosts(loadedPosts.sort((a, b) =>
-          new Date(b.date).getTime() - new Date(a.date).getTime()
-        ));
-      } catch (error) {
-        console.error('Error loading posts:', error);
-      }
-    };
-
-    loadPosts();
-  }, []);
 
   return (
     <>
