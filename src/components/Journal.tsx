@@ -15,11 +15,9 @@ type FrontMatter = {
 
 const JournalCard = (props: Post & { isHighlighted: boolean }) => {
   const { title, date, contents, isHighlighted } = props;
-  
-  const [buttonText, setButtonText] = useState('Copy Link');
-  
+
   const formattedDate = new Date(date).toISOString().split('T')[0];
-  
+
   useEffect(() => {
     // scroll highlighted element into view
     if (isHighlighted) {
@@ -32,33 +30,21 @@ const JournalCard = (props: Post & { isHighlighted: boolean }) => {
   }, [isHighlighted, formattedDate]);
 
   return (
-    <div className='col-12'>
-      <div 
-        className='card portfolio-card d-block rounded-2 border bg-body-tertiary text-decoration-none cursor-pointer'
+    <div className='journal-entry'>
+      <div
+        className='portfolio-row cursor-pointer text-dark'
+        data-bs-toggle='collapse'
+        data-bs-target={`#${formattedDate}`}
         aria-expanded={isHighlighted ? 'true' : 'false'}
         aria-controls={formattedDate}
       >
-        <div className='stretched-link' data-bs-toggle='collapse' data-bs-target={`#${formattedDate}`}></div>
-          <div className='card-body'>
-            <h5 className='card-title fw-medium'>{title}</h5>
-            <p className='card-text mb-0'>{formattedDate}</p>
-            <div className='collapse mt-4 no-transition' id={formattedDate}>
-              <ReactMarkdown>{contents}</ReactMarkdown>
-              <div className="d-flex flex-column flex-lg-row">
-                <button 
-                  className="btn btn-sm btn-dark"
-                  style={{ zIndex: 1 }}
-                  onClick={() => {
-                    navigator.clipboard.writeText(`https://sanghoon.io/journal?highlight=${formattedDate}`)
-                    setButtonText('Copied!');
-                    setTimeout(() => setButtonText('Copy Link'), 1000);
-                  }}
-                >
-                  <i className='bi bi-reply-fill me-1' style={{ transform: 'scale(-1, 1)', display: 'inline-block' }}></i>
-                  {buttonText}
-                </button>
-            </div>
-          </div>
+        <i className='portfolio-caret bi bi-caret-right-fill'></i>
+        <span className='portfolio-title'>{title}</span>
+        <span className='portfolio-desc text-black-50 ms-2'>{formattedDate}</span>
+      </div>
+      <div className='collapse no-transition' id={formattedDate}>
+        <div className='journal-body'>
+          <ReactMarkdown>{contents}</ReactMarkdown>
         </div>
       </div>
     </div>
@@ -67,46 +53,39 @@ const JournalCard = (props: Post & { isHighlighted: boolean }) => {
 
 const Journal: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
-  const [page, setPage] = useState(1);
   const [highlightedDate, setHighlightedDate] = useState<string | null>(null);
 
-  const handlePageClick = (newPage: number) => {
-    setPage(newPage);
-    document.querySelectorAll('.pagination-hover').forEach((el: Element) => {
-      (el as HTMLElement).style.setProperty('--bs-text-opacity', '0.5', 'important');
-    });
-   };
-  
-  const postsPerPage = 5;
-  const postIndex = (page - 1) * postsPerPage;
-  const postsToShow = posts.slice(postIndex, postIndex + postsPerPage);
+  // Pagination — commented out for now.
+  // To restore: re-add the state/vars below, render `postsToShow` instead of `posts`,
+  // uncomment the pagination controls in the JSX, and restore the page-jump logic in the
+  // highlight effect (find the post's index and setPage to its page).
+  // const [page, setPage] = useState(1);
+  // const postsPerPage = 5;
+  // const postIndex = (page - 1) * postsPerPage;
+  // const postsToShow = posts.slice(postIndex, postIndex + postsPerPage);
+  // const minPage = 1;
+  // const maxPage = Math.ceil(posts.length / postsPerPage);
+  // const handlePageClick = (newPage: number) => {
+  //   setPage(newPage);
+  //   document.querySelectorAll('.pagination-hover').forEach((el: Element) => {
+  //     (el as HTMLElement).style.setProperty('--bs-text-opacity', '0.5', 'important');
+  //   });
+  // };
 
-  const minPage = 1;
-  const maxPage = Math.ceil(posts.length / postsPerPage);
-  
   useEffect(() => {
     // check url for highlighted post
     const urlParams = new URLSearchParams(window.location.search);
     const highlight = urlParams.get('highlight');
     if (highlight) {
       setHighlightedDate(highlight);
-      
-      // find which page the highlighted post is on
-      const postIndex = posts.findIndex(post => 
-        new Date(post.date).toISOString().split('T')[0] === highlight
-      );
-      if (postIndex !== -1) {
-        const targetPage = Math.floor(postIndex / postsPerPage) + 1;
-        setPage(targetPage);
-      }
     }
-  }, [posts]); 
+  }, []);
 
   useEffect(() => {
     const loadPosts = async () => {
       try {
-        const markdownFiles = import.meta.glob('../assets/journal/*.md', { 
-          eager: true, 
+        const markdownFiles = import.meta.glob('../assets/journal/*.md', {
+          eager: true,
           query: '?raw',
           import: 'default'
         });
@@ -114,7 +93,7 @@ const Journal: React.FC = () => {
         const loadedPosts = await Promise.all(
           Object.entries(markdownFiles).map(async ([_, content]) => {
             const { attributes: frontmatter, body: contents } = frontMatter<FrontMatter>(content as string);
-            
+
             return {
               title: frontmatter.title || 'Untitled',
               date: frontmatter.date,
@@ -122,8 +101,8 @@ const Journal: React.FC = () => {
             };
           })
         );
-        
-        setPosts(loadedPosts.sort((a, b) => 
+
+        setPosts(loadedPosts.sort((a, b) =>
           new Date(b.date).getTime() - new Date(a.date).getTime()
         ));
       } catch (error) {
@@ -140,14 +119,14 @@ const Journal: React.FC = () => {
       <div className='mb-5'>
         <p>A collection of my thoughts...</p>
       </div>
-      <div className='row text-start mb-5 g-2'>
-        {postsToShow.map(post => {
+      <div className='portfolio-list'>
+        {posts.map(post => {
           const formattedDate = new Date(post.date).toISOString().split('T')[0];
           return (
-            <JournalCard 
-              key={post.date} 
-              title={post.title} 
-              date={post.date} 
+            <JournalCard
+              key={post.date}
+              title={post.title}
+              date={post.date}
               contents={post.contents}
               isHighlighted={formattedDate === highlightedDate}
             />
@@ -155,18 +134,12 @@ const Journal: React.FC = () => {
         })}
       </div>
 
+      {/* Pagination — commented out for now
       {maxPage > minPage && (
         <div className='d-flex flex-row justify-content-center'>
           <span onClick={() => setPage(Math.max(page - 1, minPage))}>
-            <h5 className={`text-dark bi bi-arrow-left-short me-1 cursor-pointer ${page === minPage && 'd-none'}`} /> 
+            <h5 className={`text-dark bi bi-arrow-left-short me-1 cursor-pointer ${page === minPage && 'd-none'}`} />
           </span>
-
-          {/* {page > minPage + 2 && (
-            <>
-              <span className='mx-2 text-dark pagination-hover text-opacity-50 cursor-pointer' onClick={() => setPage(minPage)}>{minPage}</span>
-              <span className='mx-2 text-dark text-opacity-50 cursor-default'>...</span>
-            </>
-          )} */}
 
           {page > minPage + 1 && <span className='mx-2 text-dark text-opacity-50 pagination-hover cursor-pointer' onClick={() => handlePageClick(page - 2)}>{page - 2}</span>}
           {page > minPage && <span className='mx-2 text-dark text-opacity-50 pagination-hover cursor-pointer' onClick={() => handlePageClick(page - 1)}>{page - 1}</span>}
@@ -176,18 +149,12 @@ const Journal: React.FC = () => {
           {page < maxPage && <span className='mx-2 text-dark text-opacity-50 pagination-hover cursor-pointer' onClick={() => handlePageClick(page + 1)}>{page + 1}</span>}
           {page < maxPage - 1 && <span className='mx-2 text-dark text-opacity-50 pagination-hover cursor-pointer' onClick={() => handlePageClick(page + 2)}>{page + 2}</span>}
 
-          {/* {page < maxPage - 2 && (
-            <>
-              <span className='mx-2 text-dark text-opacity-50 cursor-default'>...</span>
-              <span className='mx-2 text-dark pagination-hover text-opacity-50 cursor-pointer' onClick={() => setPage(maxPage)}>{maxPage}</span>
-            </>
-          )} */}
-
           <span onClick={() => setPage(Math.min(page + 1, maxPage))}>
             <h5 className={`text-dark bi bi-arrow-right-short ms-1 cursor-pointer ${page === maxPage && 'd-none'}`} />
           </span>
         </div>
       )}
+      */}
     </>
   );
 };

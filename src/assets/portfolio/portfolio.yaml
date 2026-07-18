@@ -1,0 +1,26 @@
+intro: >-
+  Lab collaborations are marked with [databio].
+
+groups:
+  - name:
+    cards:
+      - title: Drumbeat Viewer
+        desc: text embeddings, distributions, and correlations for targeted social media campaigns
+        link: https://drumbeat-viewer.pages.dev
+      - title: PEPhub
+        desc: a biological metadata management suite [databio]
+        link: https://pephub.databio.org
+      - title: BEDbase
+        desc: a centralized platform for genomic region data [databio]
+        link: https://bedbase-ui.nsheff.workers.dev/
+      - title: Genomic Regions
+        desc: an interactive explorer for genomic region embeddings [databio]
+        link: https://sanghoonio.github.io/genomic-regions/
+      - title: Tessera
+        desc: an analysis interface for single-cell sequencing data
+        link: https://sanghoon.io/tessera
+      - title: Cigareditte
+        desc: >-
+          scrolling social media feeds is like smoking an infinite cigarette.
+          what if the cigarettes weren't infinite anymore?
+        link: https://sanghoon.io/cigareditte

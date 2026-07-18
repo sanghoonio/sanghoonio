@@ -164,6 +164,84 @@ h1, h2, h3, h4, h5, h6 {
   text-indent: -10px;
 }
 
+/* Portfolio — typographic index (title link + trailing description) */
+.portfolio-title {
+  font-weight: 500 !important;
+  flex: 0 0 auto;
+}
+
+.portfolio-desc {
+  font-size: 15px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.portfolio-row {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 1.5px;
+}
+
+/* Caret revealed in the left gutter on hover */
+.portfolio-caret {
+  position: absolute;
+  left: -1rem;
+  top: 0.7rem;
+  transform: translateY(-50%);
+  font-size: 0.75rem;
+  line-height: 1;
+  opacity: 0;
+}
+
+.portfolio-row:hover .portfolio-caret {
+  opacity: 1;
+}
+
+/* Open journal entry: caret stays visible and rotates to point down */
+.portfolio-row[aria-expanded="true"] .portfolio-caret {
+  opacity: 1;
+  transform: translateY(-50%) rotate(90deg);
+}
+
+/* Light vertical thread from below the open caret down alongside the content */
+.journal-entry {
+  position: relative;
+}
+
+.journal-entry:has(.portfolio-row[aria-expanded="true"])::before {
+  content: "";
+  position: absolute;
+  left: -0.65rem;
+  top: .9rem;
+  bottom: .48rem;
+  width: 1px;
+  background: rgba(128, 128, 128, 0);
+}
+
+/* Journal dates sit at the right edge of the row (portfolio descriptions stay left) */
+.journal-entry .portfolio-desc {
+  text-align: left;
+}
+
+/* Expanded journal content — nested under its entry */
+.journal-body {
+  padding-left: 0.6rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 15px;
+}
+
+/* Paragraph spacing within the entry body */
+.journal-body p {
+  margin-bottom: 0.75rem;
+}
+
+/* Tighten the gap between the entry's markdown title (first line) and its body */
+.journal-body p:first-child {
+  margin-bottom: 0.5rem;
+}
+
 .portfolio-card {
   transition: all 150ms;
 }
@@ -184,4 +262,87 @@ h1, h2, h3, h4, h5, h6 {
 
 .cursor-default {
   cursor: default;
+}
+
+/* RESUME (markdown render — matches the old resume page appearance) */
+.resume-md {
+  font-size: 0.9rem;
+  line-height: 1.25;
+}
+
+/* Section headers (Education / Projects / Experience / Skills) */
+.resume-md h2 {
+  font-size: 1rem;
+  font-weight: 600 !important;
+  margin: 0.8125rem 0 0.25rem;
+}
+
+.resume-md h2:first-child {
+  margin-top: 0;
+}
+
+/* Header owns the 4px gap; don't let the first entry add its own on top */
+.resume-md h2 + h3 {
+  margin-top: 0;
+}
+
+/* Entry titles — role/project left, date floated right on the same line */
+.resume-md h3 {
+  font-size: 0.9rem;
+  font-weight: 500 !important;
+  margin: 0.25rem 0 0;
+}
+
+.resume-md h3 .date {
+  float: right;
+  font-weight: 500 !important;
+  margin-right: 0;
+}
+
+/* Reserve the right-hand year column so entry text doesn't run under the years
+   (mirrors the old .resume-text width: 88%) */
+.resume-md h3,
+.resume-md li {
+  padding-right: 0;
+}
+
+/* Bullets — dash marker, hanging indent, tight */
+.resume-md ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  list-style: none;
+}
+
+.resume-md li {
+  text-indent: -10px;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.resume-md li::before {
+  content: "- ";
+}
+
+/* Education + Skills blocks — plain lines, medium-weight labels */
+.resume-md .edu p,
+.resume-md .skills p {
+  margin: 0;
+}
+
+.resume-md .edu strong,
+.resume-md .skills strong {
+  font-weight: 500;
+}
+
+/* Stack the date under the title on narrow screens (matches old behavior) */
+@media (max-width: 992px) {
+  .resume-md h3 .date {
+    float: none;
+    display: block;
+    margin-right: 0;
+  }
+  .resume-md h3,
+  .resume-md li {
+    padding-right: 0;
+  }
 }
