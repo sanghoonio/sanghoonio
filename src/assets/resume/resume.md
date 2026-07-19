@@ -11,7 +11,7 @@ Bachelor of Science (G. May 2022). Major: Biomedical Engineering | Minor: Comput
 ### Drumbeat Atlas, Drumbeat Labs <span class="date">2026</span>
 
 - Built a social media data collection pipeline feeding into a post-centric corpus on Cloudflare D1, incorporating a Python FastAPI deployed as a Cloudflare Worker, scheduled GitHub Actions to automate fetches, and a React frontend
-- Enriched each post with audio transcriptions, OCR, embeddings, clustering, sentiment scoring using open-source tools
+- Enriched each post with audio transcriptions, OCR, embeddings, clustering, sentiment scoring using open-source models
 - Compared campaign and non-campaign posts within semantic clusters, attributing engagement signal to creator follower counts and negative post sentiment
 - Explored engagement drivers with random forests, permutation importance, and Spearman/Pearson correlations
 - Diagnosed a recency and depth bias in the Scrape Creators fetch API and scoped temporal claims to the recent window it can actually return
