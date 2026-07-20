@@ -10,11 +10,11 @@ Bachelor of Science (G. May 2022). Major: Biomedical Engineering | Minor: Comput
 
 ### Drumbeat Atlas, Drumbeat Labs <span class="date">2026</span>
 
-- Built a social media data collection pipeline feeding into a post-centric corpus on Cloudflare D1, incorporating a Python FastAPI deployed as a Cloudflare Worker, scheduled GitHub Actions to automate fetches, and a React frontend
+- Architected a social media data collection pipeline feeding into a post-centric corpus on Cloudflare D1, incorporating a Python FastAPI deployed as a Cloudflare Worker, scheduled GitHub Actions to automate fetches, and a React frontend
 - Enriched each post with audio transcriptions, OCR, embeddings, clustering, sentiment scoring using open-source models
 - Compared campaign and non-campaign posts within semantic clusters, attributing engagement signal to creator follower counts and negative post sentiment
 - Explored engagement drivers with random forests, permutation importance, and Spearman/Pearson correlations
-- Diagnosed a recency and depth bias in the Scrape Creators fetch API and scoped temporal claims to the recent window it can actually return
+- Diagnosed a recency and depth bias in the Scrape Creators fetch API and scoped temporal claims to the recent window it tends to return
 
 ### Drumbeat Viewer, Drumbeat Labs <span class="date">2026</span>
 
@@ -23,7 +23,7 @@ Bachelor of Science (G. May 2022). Major: Biomedical Engineering | Minor: Comput
 - Links density distribution plots that crossfilter the map in real time, with interval brushes that highlight the selection
 - A heatmap strip reports the live deviation from corpus mean and correlations with the colored variable over the current selection
 
-### BEDbase-UI + gtars, University of Virginia <span class="date">2026</span>
+### BEDbase + gtars, University of Virginia <span class="date">2026</span>
 
 - Built an updated web interface for bedbase.org, incorporating an interactive UMAP embedding viewer
 - Live-rendered Observable Plot visualizations replace our precomputed ones from ggplot2

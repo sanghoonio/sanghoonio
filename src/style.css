@@ -287,4 +287,10 @@ h1, h2, h3, h4, h5, h6 {
   .resume-md li {
     padding-right: 0;
   }
+  /* Portfolio: let title + description flow inline so wrapped description
+     lines fall back to the row's left edge instead of indenting under the
+     description column (journal rows are divs, so they keep their layout) */
+  a.portfolio-row {
+    display: block;
+  }
 }
