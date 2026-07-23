@@ -27,7 +27,23 @@ const Portfolio: React.FC = () => {
     <>
       <h4 className='fw-medium'>Portfolio</h4>
       <div className='mb-5'>
-        <p>{portfolio.intro}</p>
+        <p>
+          {portfolio.intro.split('[databio]').map((part, index, parts) => (
+            <React.Fragment key={index}>
+              {part}
+              {index < parts.length - 1 && (
+                <a
+                  className='link-primary text-decoration-none'
+                  href='https://databio.org/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  [databio]
+                </a>
+              )}
+            </React.Fragment>
+          ))}
+        </p>
       </div>
 
       <div className='portfolio-list'>

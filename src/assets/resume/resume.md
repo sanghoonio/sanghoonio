@@ -1,18 +1,10 @@
-## Education
-
-<div class="edu">
-<p><strong>University of Virginia</strong></p>
-<p>Master of Science (G. Aug 2026). Program: Data Science<br>
-Bachelor of Science (G. May 2022). Major: Biomedical Engineering | Minor: Computer Science</p>
-</div>
-
 ## Projects
 
 ### Drumbeat Atlas, Drumbeat Labs <span class="date">2026</span>
 
 - Architected a social media data collection pipeline feeding into a post-centric corpus on Cloudflare D1, incorporating a Python FastAPI deployed as a Cloudflare Worker, scheduled GitHub Actions to automate fetches, and a React frontend
 - Enriched each post with audio transcriptions, OCR, embeddings, clustering, sentiment scoring using open-source models
-- Compared campaign and non-campaign posts within semantic clusters, attributing engagement signal to creator follower counts and negative post sentiment
+- Compared campaign and non-campaign posts within semantic clusters, attributing engagement signal to follower counts, negative post sentiment, and topic-dependent embedding dimensions
 - Explored engagement drivers with random forests, permutation importance, and Spearman/Pearson correlations
 - Diagnosed a recency and depth bias in the Scrape Creators fetch API and scoped temporal claims to the recent window it tends to return
 
@@ -38,7 +30,7 @@ Bachelor of Science (G. May 2022). Major: Biomedical Engineering | Minor: Comput
 
 ### Bioinformatician, University of Virginia <span class="date">2024 — Current</span>
 
-- Built interactive user and data visualization interfaces for lab tools and software
+- Built interactive user and data visualization interfaces for tools published by Sheffield Lab
 - Developed Refget SCOM interface to visualize comparisons between genomic sequence collections via Vega-Lite
 - Ran statistical analyses (stratified GWAS + pQTL colocalization) to identify credible signals for sex differences in lung function
 - Investigated markers of abnormal lobe function and transplant rejection using single-cell gene expression in human lung
@@ -59,4 +51,12 @@ Bachelor of Science (G. May 2022). Major: Biomedical Engineering | Minor: Comput
 <strong>Machine Learning:</strong> embeddings, clustering, sentiment analysis, random forest, permutation importance<br>
 <strong>Data Visualization:</strong> Vega-Lite, Mosaic/vgplot, Observable Plot, D3, ggplot2<br>
 <strong>Infrastructure:</strong> React, React Router, Zustand, FastAPI, Cloudflare, GitHub Actions, DuckDB</p>
+</div>
+
+## Education
+
+<div class="edu">
+<p><strong>University of Virginia</strong></p>
+<p>Master of Science (Aug 2026). Program: Data Science<br>
+Bachelor of Science (May 2022). Major: Biomedical Engineering | Minor: Computer Science</p>
 </div>
