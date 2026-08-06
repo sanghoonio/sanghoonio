@@ -2,11 +2,11 @@
 
 ### Drumbeat Atlas, Drumbeat Labs <span class="date">2026</span>
 
-- Architected a social media data collection pipeline feeding into a post-centric corpus on Cloudflare D1, incorporating a Python FastAPI deployed as a Cloudflare Worker, scheduled GitHub Actions to automate fetches, and a React frontend
-- Enriched each post with audio transcriptions, OCR, embeddings, clustering, sentiment scoring using open-source models
-- Compared campaign and non-campaign posts within semantic clusters, attributing engagement signal to follower counts, negative post sentiment, and topic-dependent embedding dimensions
-- Explored engagement drivers with random forests, permutation importance, and Spearman/Pearson correlations
-- Diagnosed a recency and depth bias in the Scrape Creators fetch API and scoped temporal claims to the recent window it tends to return
+- Architected a social media collection and analysis pipeline on Cloudflare (D1, Workers, R2) with scheduled GitHub Actions fetches and a web management UI, assembling a 37,000-post corpus across seven campaign topics
+- Enriched posts with local Whisper transcription and frame OCR, 768-dimension embeddings, PCA, and Leiden clustering, plus transformer and lexicon sentiment scoring of caption, audio, and on-screen text
+- Probed the embedding space for five LLM-labeled categories with logistic regression reaching held-out AUC 0.80 to 0.91, then estimated each category's engagement association across 14,000 posts in two campaigns
+- Found views are driven by follower count and post age while engagement is associated with semantic content
+- Diagnosed a recency and relevance bias in the Scrape Creators API and scoped temporal claims accordingly
 
 ### Drumbeat Viewer, Drumbeat Labs <span class="date">2026</span>
 
@@ -47,8 +47,8 @@
 
 <div class="skills">
 <p><strong>Languages &amp; Data:</strong> R, Python, JavaScript, TypeScript, SQL<br>
-<strong>Statistics &amp; Experimentation:</strong> causal inference, statistical measurement, linear regression<br>
-<strong>Machine Learning:</strong> embeddings, clustering, sentiment analysis, random forest, permutation importance<br>
+<strong>Statistics &amp; Experimentation:</strong> causal inference, permutation testing, effect estimation, linear regression<br>
+<strong>Machine Learning:</strong> text embeddings, supervised classification and probing, PCA, UMAP, clustering, random forest<br>
 <strong>Data Visualization:</strong> Vega-Lite, Mosaic/vgplot, Observable Plot, D3, ggplot2<br>
 <strong>Infrastructure:</strong> React, React Router, Zustand, FastAPI, Cloudflare, GitHub Actions, DuckDB</p>
 </div>
