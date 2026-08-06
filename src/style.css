@@ -187,7 +187,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 15px;
 }
 
-/* Inline prose links read as body text, underlining on hover.
+/* Inline prose links read as underlined body text.
    `inherit` also beats the dark-mode `a { color: #eee !important }` rule. */
 .journal-body a,
 .journal-body a:hover,
@@ -198,11 +198,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .journal-body a,
 .inline-link {
-  text-decoration: none;
-}
-
-.journal-body a:hover,
-.inline-link:hover {
   text-decoration: underline;
 }
 
