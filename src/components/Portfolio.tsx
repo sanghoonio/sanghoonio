@@ -33,7 +33,7 @@ const Portfolio: React.FC = () => {
               {part}
               {index < parts.length - 1 && (
                 <a
-                  className='link-primary text-decoration-none'
+                  className='inline-link'
                   href='https://databio.org/'
                   target='_blank'
                   rel='noopener noreferrer'

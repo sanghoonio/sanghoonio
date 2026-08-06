@@ -163,24 +163,47 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
 }
 
-/* Open journal entry: caret stays visible and rotates to point down */
-.portfolio-row[aria-expanded="true"] .portfolio-caret {
-  opacity: 1;
-  transform: translateY(-50%) rotate(90deg);
-}
-
 /* Journal dates sit at the right edge of the row (portfolio descriptions stay left) */
 .journal-entry .portfolio-desc {
   text-align: right;
 }
 
-/* Expanded journal content — nested under its entry */
-.journal-body {
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
+/* Back-to-list row above an open entry — the only control on the page, so its
+   left-pointing gutter caret stays visible instead of waiting for hover */
+.journal-back {
   font-size: 15px;
+}
+
+.journal-back .portfolio-caret {
+  opacity: 1;
+}
+
+.journal-back:hover span {
+  text-decoration: underline;
+}
+
+/* Entry body, rendered in place of the list */
+.journal-body {
+  font-size: 15px;
+}
+
+/* Inline prose links read as body text, underlining on hover.
+   `inherit` also beats the dark-mode `a { color: #eee !important }` rule. */
+.journal-body a,
+.journal-body a:hover,
+.inline-link,
+.inline-link:hover {
+  color: inherit !important;
+}
+
+.journal-body a,
+.inline-link {
+  text-decoration: none;
+}
+
+.journal-body a:hover,
+.inline-link:hover {
+  text-decoration: underline;
 }
 
 /* Paragraph spacing within the entry body */
@@ -191,6 +214,15 @@ h1, h2, h3, h4, h5, h6 {
 /* Tighten the gap between the entry's markdown title (first line) and its body */
 .journal-body p:first-child {
   margin-bottom: 0.5rem;
+}
+
+/* 404 — one centered line, sitting a little below the top of the content area */
+.not-found {
+  padding: 7rem 0 4rem;
+}
+
+.not-found-title {
+  font-size: 1.25rem;
 }
 
 .nav-hover:hover {
@@ -289,8 +321,8 @@ h1, h2, h3, h4, h5, h6 {
   }
   /* Portfolio: let title + description flow inline so wrapped description
      lines fall back to the row's left edge instead of indenting under the
-     description column (journal rows are divs, so they keep their layout) */
-  a.portfolio-row {
+     description column (journal rows keep title + date on one flex line) */
+  a.portfolio-row:not(.journal-entry) {
     display: block;
   }
 }

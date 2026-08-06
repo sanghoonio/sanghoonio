@@ -11,14 +11,14 @@ const NavLink = (props: NavLinkProps) => {
   const { page, title, position, currentPage } = props;
 
   if (position === 'top') return (
-    <Link className={`text-hover cursor-pointer ${currentPage === page ? 'text-dark fw-medium' : 'text-black-50'}`} to={page}>
+    <Link className={`text-hover cursor-pointer ${currentPage === page ? 'text-dark fw-medium' : 'text-black-50'}`} to={`/${page}`}>
       <p className='mb-0 nav-hover cursor-pointer'>{title}</p>
     </Link>
   )
 
   return (
     <p className='mb-0'>
-      <Link className={`text-hover cursor-pointer ${currentPage === page ? 'text-dark fw-medium' : 'text-black-50'}`} to={page}>
+      <Link className={`text-hover cursor-pointer ${currentPage === page ? 'text-dark fw-medium' : 'text-black-50'}`} to={`/${page}`}>
         {title}
       </Link>
     </p>
@@ -26,7 +26,8 @@ const NavLink = (props: NavLinkProps) => {
 };
 
 function Navbar() {
-  const location = useLocation().pathname.substring(1) || 'about';
+  // First path segment only, so nested pages (/journal/<slug>) keep their tab active
+  const location = useLocation().pathname.split('/')[1] || 'about';
 
   return (
     <>
@@ -34,13 +35,13 @@ function Navbar() {
         <div className='row page-width sticky-top'>
           <div className='col-12 py-4'>
             <img 
-              src='profile.png' 
+              src='/profile.png'
               width='131px' 
               height='131px' 
               alt='Hello!'
               style={{ marginTop: '5px' }}
             />
-            <Link to='' className='text-decoration-none text-dark'>
+            <Link to='/' className='text-decoration-none text-dark'>
               <h5 className='fw-medium mb-3 mt-1'>Sam Park</h5>
             </Link>
             <div className='col-12 text-start'>
@@ -56,7 +57,7 @@ function Navbar() {
       <div className='topbar sticky-top'>
         <div className='row page-width'>
           <div className='col-12 p-4'>
-            <Link to='' className='text-decoration-none text-dark'>
+            <Link to='/' className='text-decoration-none text-dark'>
               <h5 className='d-inline fw-medium mb-3'>Sam Park</h5>
             </Link>
             <span className='d-inline float-end cursor-pointer dropdown-hover' data-bs-toggle='dropdown' aria-expanded='false'>

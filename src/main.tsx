@@ -6,6 +6,7 @@ import About from './components/About';
 import Journal from './components/Journal';
 import Resume from './components/Resume';
 import Portfolio from './components/Portfolio'
+import NotFound from './components/NotFound';
 
 import './style.css'
 import 'bootstrap/dist/css/bootstrap.css';
@@ -24,8 +25,10 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <Route path="/" element={<About />} />
             <Route path="/about" element={<About />} />
             <Route path="/journal" element={<Journal/>} />
+            <Route path="/journal/:slug" element={<Journal/>} />
             <Route path="/resume" element={<Resume/>} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
 
           </div>

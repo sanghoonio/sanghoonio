@@ -10,7 +10,7 @@ const Resume: React.FC = () => {
     <>
       <div className='d-flex flex-row justify-content-between pb-4 mb-2'>
         <h4 className='fw-medium mb-0'>Sang-Hoon Park</h4>
-        <a className='cursor-pointer' href='resume.pdf' download='resume.pdf'>
+        <a className='cursor-pointer' href='/resume.pdf' download='resume.pdf'>
           <h4 className='bi bi-file-earmark-arrow-down text-dark' />
         </a>
       </div>
