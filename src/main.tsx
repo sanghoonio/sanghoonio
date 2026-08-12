@@ -28,6 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <Route path="/journal/:slug" element={<Journal/>} />
             <Route path="/resume" element={<Resume/>} />
             <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/portfolio/:slug" element={<Portfolio />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
 

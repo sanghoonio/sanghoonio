@@ -2,7 +2,16 @@ intro: >-
   Lab collaborations are marked with [databio].
 
 groups:
-  - name:
+  - name: Case Studies
+    cards:
+      - title: Measuring Engagement on TikTok
+        desc: investigating organic social media campaigns
+        slug: measuring-engagement-on-tiktok
+      - title: Dictionary of Regulatory Genomics
+        desc: exploring genomic regions as a lexicon [databio]
+        slug: dictionary-of-regulatory-genomics
+
+  - name: Projects
     cards:
       - title: Drumbeat Viewer
         desc: text embeddings, distributions, and correlations for targeted social media campaigns
@@ -19,3 +28,9 @@ groups:
       - title: Tessera
         desc: an analysis interface for single-cell sequencing data
         link: https://tessera.sanghoonio.workers.dev/
+      - title: gtars
+        desc: performance-critical tools for genomic interval data in Rust [databio]
+        link: https://github.com/databio/gtars
+      - title: Seurat Pipeline
+        desc: an AI-friendly scRNAseq pipeline
+        link: https://github.com/sanghoonio/seurat-pipeline

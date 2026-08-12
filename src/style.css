@@ -48,7 +48,7 @@
   }
 }
 
-main, p, span, button, a, ul, li {
+main, p, span, button, a, ul, li, figcaption {
   font-family: 'Baloo 2', arial, sans-serif !important;
   font-weight: 400 !important;
   font-style: normal !important;
@@ -168,22 +168,23 @@ h1, h2, h3, h4, h5, h6 {
   text-align: right;
 }
 
-/* Back-to-list row above an open entry — the only control on the page, so its
-   left-pointing gutter caret stays visible instead of waiting for hover */
-.journal-back {
+/* Back-to-list row above an open entry or case study — the only control on the
+   page, so its left-pointing gutter caret stays visible instead of waiting for hover */
+.back-row {
   font-size: 15px;
 }
 
-.journal-back .portfolio-caret {
+.back-row .portfolio-caret {
   opacity: 1;
 }
 
-.journal-back:hover span {
+.back-row:hover span {
   text-decoration: underline;
 }
 
 /* Entry body, rendered in place of the list */
-.journal-body {
+.journal-body,
+.portfolio-body {
   font-size: 15px;
 }
 
@@ -191,24 +192,148 @@ h1, h2, h3, h4, h5, h6 {
    `inherit` also beats the dark-mode `a { color: #eee !important }` rule. */
 .journal-body a,
 .journal-body a:hover,
+.portfolio-body a,
+.portfolio-body a:hover,
 .inline-link,
 .inline-link:hover {
   color: inherit !important;
 }
 
 .journal-body a,
+.portfolio-body a,
 .inline-link {
   text-decoration: underline;
 }
 
 /* Paragraph spacing within the entry body */
-.journal-body p {
+.journal-body p,
+.portfolio-body p,
+.portfolio-body ol {
   margin-bottom: 0.75rem;
 }
 
 /* Tighten the gap between the entry's markdown title (first line) and its body */
 .journal-body p:first-child {
   margin-bottom: 0.5rem;
+}
+
+/* CASE STUDY (portfolio detail — prose with figures) */
+.portfolio-body h2 {
+  font-size: 1rem;
+  font-weight: 500 !important;
+  margin: 1.75rem 0 0.5rem;
+}
+
+/* Baloo's default bold is heavy against this body text */
+.portfolio-body strong {
+  font-weight: 600;
+}
+
+/* The figure link is a plain wrapper, not prose */
+.portfolio-body .figure-block a,
+.portfolio-body .figure-block a:hover {
+  text-decoration: none;
+  display: block;
+}
+
+.figure-block {
+  margin: 1.25rem 0 1.5rem;
+}
+
+/* Exports carry their own white background, which is what keeps the
+   dark-on-light figures readable in dark mode */
+.figure-block img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.figure-block figcaption {
+  font-size: 13px;
+  line-height: 1.35;
+  margin-top: 0.5rem;
+}
+
+.figure-zoom {
+  cursor: zoom-in;
+}
+
+/* Expanded figure — click anywhere or press escape to close */
+.figure-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1080;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 5vh 4vw;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* The overlay takes focus on open so the dialog owns the keyboard, but it is a
+   container rather than a control, so it doesn't advertise a ring */
+.figure-overlay:focus {
+  outline: none;
+}
+
+.figure-overlay img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  cursor: zoom-in;
+  transform-origin: center center;
+}
+
+/* Zoomed: the figure overflows the overlay on purpose and is dragged around */
+.figure-overlay.is-zoomed {
+  cursor: default;
+  overflow: hidden;
+}
+
+/* Only once zoomed: dragging is ours from here, so the browser's own panning is
+   taken off. In the fitted view pinch-zoom stays native, which is the gesture a
+   phone reaches for on the taller figures. */
+.figure-overlay.is-zoomed img {
+  cursor: zoom-out;
+  max-height: none;
+  touch-action: none;
+}
+
+/* While the pointer is held down the figure is being panned, not clicked */
+.figure-overlay.is-zoomed img.is-panning {
+  cursor: grabbing;
+}
+
+/* Descendant selector on purpose. Bootstrap reboot has
+   `button:not(:disabled) { cursor: pointer }`, which scores (0,1,1) because
+   :not() carries its argument's weight, and style.css is imported BEFORE
+   bootstrap, so a bare .figure-overlay-close loses on both specificity and
+   source order. */
+.figure-overlay .figure-overlay-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  z-index: 1;
+  padding: 0.25rem 0.5rem;
+  border: 0;
+  background: none;
+  line-height: 1;
+  font-size: 20px;
+  color: #ccc;
+}
+
+.figure-overlay .figure-overlay-close:hover {
+  color: #fff;
+}
+
+.figure-overlay-caption {
+  font-size: 13px;
+  line-height: 1.35;
+  text-align: center;
+  margin: 0;
+  color: #ccc !important;
 }
 
 /* 404 — one centered line, sitting a little below the top of the content area */

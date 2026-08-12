@@ -99,7 +99,7 @@ const JournalEntry = ({ post }: { post: Post }) => {
 
   return (
     <>
-      <Link className='portfolio-row journal-back text-dark text-decoration-none mb-4' to='/journal'>
+      <Link className='portfolio-row back-row text-dark text-decoration-none mb-4' to='/journal'>
         <i className='portfolio-caret bi bi-caret-left-fill'></i>
         <span>Back</span>
       </Link>

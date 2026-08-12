@@ -24,7 +24,7 @@
 ### Genomic Regions, Sheffield Lab <span class="date">2026</span>
 
 - Built an interactive multi-panel explorer for Region2Vec genomic region embeddings incorporating linked UMAPs, chromosome distributions, and region co-occurrence plots
-- Explored spatial relationships between region embedding tokens as a provisional grammar of regulatory genomics
+- Explored spatial relationships between region embedding tokens as a provisional dictionary of regulatory genomics
 
 ## Experience
 
