@@ -439,10 +439,19 @@ h1, h2, h3, h4, h5, h6 {
   .resume-md li {
     padding-right: 0;
   }
-  /* Portfolio: let title + description flow inline so wrapped description
-     lines fall back to the row's left edge instead of indenting under the
-     description column (journal rows keep title + date on one flex line) */
-  a.portfolio-row:not(.journal-entry) {
+  /* Portfolio: the description drops to its own full-width line instead of
+     being squeezed into a narrow column beside the title — applies to both the
+     index rows and a case study's heading (journal rows keep title + date on
+     one flex line) */
+  .portfolio-row:not(.journal-entry) {
     display: block;
+  }
+  .portfolio-row:not(.journal-entry) .portfolio-desc {
+    display: block;
+    margin-left: 0 !important;
+  }
+  /* Two-line rows need more separation than the 1.5px a one-line row got */
+  .portfolio-list a.portfolio-row:not(.journal-entry) {
+    margin-bottom: 0.6rem;
   }
 }

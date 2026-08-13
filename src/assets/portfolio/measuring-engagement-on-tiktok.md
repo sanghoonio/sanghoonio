@@ -19,7 +19,9 @@ We ran the pipeline on two official Drumbeat campaigns. One covers affordability
 
 ![Embedding map of the Georgia Affordability corpus, with campaign posts and per-cluster detail](/figures/capstone/fig_finding1.webp "Leiden clustering on the embedding kNN graph, projected with UMAP.")
 
-Our embedding approach produces good separation and distinct clusters of posts across campaign topics. Inspired by single-cell sequencing methods, we used the Leiden algorithm to identify campaign subtopics from the embeddings, and topics generally group into 13 to 16 clusters. For Georgia Affordability, 94% of the campaign's posts fall into 3 of 16 clusters. Gas prices and data centers sit furthest from the rest of the corpus, at cluster centroid cosine distances of 0.097 and 0.082 from the corpus mean. But one caveat of our results is that the corpus and embedding projections are always biased by our selection of queries for a given campaign topic, and what Scrape Creators or TikTok return in response. More on this later.
+Our embedding approach produces good separation and distinct clusters of posts across campaign topics. Inspired by single-cell sequencing methods, we used the Leiden algorithm to identify campaign subtopics from the embeddings, and topics generally group into 13 to 16 clusters. For Georgia Affordability, 94% of the campaign's posts fall into 3 of 16 clusters. Gas prices and data centers sit furthest from the rest of the corpus, at cluster centroid cosine distances of 0.097 and 0.082 from the corpus mean. 
+
+One caveat of our results is that the corpus and embedding projections are always biased by our selection of queries for a given campaign topic, and what Scrape Creators or TikTok return in response. As nicely shaped or comprehensive the embedding space may look, the posts themselves fetched in our corpus are not fully representative of the conversation as it ocurred on TikTok. More on this later.
 
 ## Interpreting the shapes of latent embeddings
 
