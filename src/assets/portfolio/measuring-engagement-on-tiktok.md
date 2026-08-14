@@ -33,7 +33,7 @@ The field simultaneously uses embeddings for quantified representations of conce
 
 ![Feature correlations, permutation importance, and per-cluster variation for engagement and views](/figures/capstone/fig_finding3.webp "Views and engagement rate have different predictors. Notice the double negatives for PC2 and PC7 when it comes to keyword correlations associated with engagement.")
 
-We modeled views and engagement separately with random forests, using metadata, embedding PCs, and sentiment scores as features. Views were predictable at cross-validated R² 0.32 (GA) and 0.28 (Dobbs), mostly from follower count and post age. Engagement rate was harder to predict at 0.15 (GA) and 0.08 (Dobbs), and leaned on semantic content instead. Looking at the words correlated with each component, we see political vocabulary on the more engaged end of PC2 and PC10, and profanity on the more engaged end of PC7. These associations provide further evidence that emotionally charged, attributing content resonates better with viewers.
+We modeled views and engagement separately with random forests, using metadata, embedding PCs, and sentiment scores as features. Views were predictable at cross-validated R² 0.32 (GA Affordability) and 0.28 (Dobbs), mostly from follower count and post age. Engagement rate was harder to predict at 0.15 (GA Affordability) and 0.08 (Dobbs), and leaned on semantic content instead. Looking at the words correlated with each component, we see political vocabulary on the more engaged end of PC2 and PC10, and profanity on the more engaged end of PC7. These associations provide further evidence that emotionally charged, attributing content resonates better with viewers.
 
 ## On social media data
 
