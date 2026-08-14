@@ -2,29 +2,30 @@
 
 ### Drumbeat Atlas, Drumbeat Labs (Capstone) <span class="date">2026</span>
 
-- Architected a social media collection and analysis pipeline on Cloudflare (D1, Workers, R2) with scheduled GitHub Actions fetches and a web management UI, assembling a 37,000-post corpus across seven campaign topics
-- Enriched posts with local Whisper transcription and OCR, 768-dimension embeddings, PCA, and Leiden clustering, plus transformer and lexicon sentiment scoring of caption, audio, and on-screen text
-- Diagnosed a recency and relevance bias in the Scrape Creators API and scoped temporal claims accordingly
+- Architected and deployed a social media analysis pipeline on Cloudflare and GitHub Actions to collect a 37,000-post corpus across several campaign topics
+- Transcribed spoken audio and on-screen text of each post for text embeddings, clustering, and sentiment scoring
 - Found views are driven by follower count and post age while engagement is associated with semantic content
-- Probed the embedding space for five LLM-labeled categories with logistic regression reaching held-out AUC 0.80 to 0.91, then estimated each category's engagement association across 14,000 posts in two campaigns
+- Trained embedding probes using logistic regression for five content categories at held-out AUC 0.80 to 0.91, finding posts that name wrongdoing draw the strongest engagement in two sponsored campaigns
+- Identified a recency bias in the Scrape Creators API and scoped temporal claims accordingly
 
 ### Drumbeat Viewer, Drumbeat Labs (Capstone) <span class="date">2026</span>
 
 - Built a web interface for post embeddings, sentiment, and metadata to support real-time exploratory demos
 - Renders the UMAP embedding projection client-side via DuckDB-wasm + Mosaic + vgplot so that all computations for selections and crossfilters occur instantly in-browser
 - Links density distribution plots that crossfilter the map, with interval brushes that highlight the selection
-- A heatmap strip reports the live deviation from corpus mean and feature correlations over the current selection
+- Reports live deviation from corpus mean and feature correlations over the current selection in a heatmap strip
 
-### BEDbase + gtars, Sheffield Lab <span class="date">2026</span>
+### BEDbase + gtars, University of Virginia <span class="date">2026</span>
 
 - Built an updated web interface for bedbase.org, incorporating an interactive UMAP embedding viewer
 - Live-rendered Observable Plot visualizations replace our precomputed ones from ggplot2
 - Drove the porting of the lab's algorithms into Rust + WASM bindings to facilitate these features
 
-### Genomic Regions, Sheffield Lab <span class="date">2026</span>
+### Genomic Regions, University of Virginia <span class="date">2026</span>
 
-- Built an interactive multi-panel explorer for Region2Vec genomic region embeddings incorporating linked UMAPs, chromosome distributions, and region co-occurrence plots
-- Explored spatial relationships between region embedding tokens as a provisional dictionary of regulatory genomics
+- Explored spatial relationships across one million+ pretrained Region2Vec genomic region embeddings
+- Annotated genomic regions by transcription factor binding across three cell lines, recovering erythroid, hepatocyte, and B-cell programs unsupervised
+- Built an interactive multi-panel explorer for region embeddings incorporating linked UMAPs, chromosome distributions, and region co-occurrence plots
 
 ## Experience
 
@@ -47,7 +48,7 @@
 
 <div class="skills">
 <p><strong>Languages &amp; Data:</strong> R, Python, JavaScript, TypeScript, SQL<br>
-<strong>Statistics &amp; Measurement:</strong> causal inference, permutation testing, effect estimation, linear regression<br>
+<strong>Statistics &amp; Measurement:</strong> permutation testing, effect estimation, linear regression<br>
 <strong>Machine Learning:</strong> text embeddings, supervised classification and probing, PCA, UMAP, clustering, random forest<br>
 <strong>Data Visualization:</strong> Vega-Lite, Mosaic/vgplot, Observable Plot, D3, ggplot2<br>
 <strong>Infrastructure:</strong> React, React Router, Zustand, FastAPI, Cloudflare, GitHub Actions, DuckDB, AWS</p>
