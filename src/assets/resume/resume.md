@@ -35,7 +35,7 @@
 - Developed Refget SCOM interface to visualize comparisons between genomic sequence collections via Vega-Lite
 - Ran stratified GWAS and pQTL colocalization analyses to identify credible signals for sex differences in lung function
 - Investigated markers of abnormal lobe function and transplant rejection using single-cell gene expression in human lung
-- Engineered a single-cell RNAseq pipeline for integration with agentic AI, incorporating a canonical config source, machine-readable output summaries, and pipe-friendly I/O
+- Engineered a single-cell RNAseq pipeline for agentic AI integration with canonical configs, machine-readable outputs, and pipe-friendly I/O
 - Contributed to pilot study using biological age prediction and GWAS to explore genetic sources of biological age gap within human proteome and transcriptome
 
 ### Automation Engineer, Merck & Co. (Contract) <span class="date">2022 — 2025</span>
