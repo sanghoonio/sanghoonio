@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 package-lock.json
+
+# Fetched on demand by the seal generators (see src/scripts/seal_lib.font)
+src/scripts/*.ttf
+__pycache__

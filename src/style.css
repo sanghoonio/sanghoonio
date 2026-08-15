@@ -1,5 +1,17 @@
 /* MAIN */
 
+/* Content links — rose, matching the résumé PDF (jobs/resume/resume.css) */
+:root {
+  --link-color: #a61e4d;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* #a61e4d is too dark to read on black */
+  :root {
+    --link-color: #e64980;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     color: #eee !important;
@@ -188,20 +200,20 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 15px;
 }
 
-/* Inline prose links read as underlined body text.
-   `inherit` also beats the dark-mode `a { color: #eee !important }` rule. */
+/* Inline prose links — rose, underlined on hover only.
+   `!important` beats the dark-mode `a { color: #eee !important }` rule. */
 .journal-body a,
-.journal-body a:hover,
 .portfolio-body a,
-.portfolio-body a:hover,
 .inline-link,
-.inline-link:hover {
-  color: inherit !important;
+.resume-md a {
+  color: var(--link-color) !important;
+  text-decoration: none;
 }
 
-.journal-body a,
-.portfolio-body a,
-.inline-link {
+.journal-body a:hover,
+.portfolio-body a:hover,
+.inline-link:hover,
+.resume-md a:hover {
   text-decoration: underline;
 }
 
@@ -232,6 +244,7 @@ h1, h2, h3, h4, h5, h6 {
 /* The figure link is a plain wrapper, not prose */
 .portfolio-body .figure-block a,
 .portfolio-body .figure-block a:hover {
+  color: inherit !important;
   text-decoration: none;
   display: block;
 }
