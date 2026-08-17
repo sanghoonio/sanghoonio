@@ -9,7 +9,7 @@ Data Scientist at the University of Virginia with four years of research and ind
 - Transcribed spoken audio and on-screen text of each post for text embeddings, clustering, and sentiment scoring
 - Found views are driven by follower count and post age while engagement is associated with semantic content
 - Trained embedding probes using logistic regression for five content categories at held-out AUC 0.80 to 0.91, finding posts that name wrongdoing draw the strongest engagement in two sponsored campaigns
-- Identified a recency bias in the Scrape Creators API and scoped temporal claims accordingly
+- Identified a recency bias in the Scrape Creators API and normalized cluster proportions per time window
 - Built a [web interface](https://drumbeat-viewer.pages.dev) in React for post embeddings, sentiment, and metadata to support real-time exploratory demos
 - Interface renders the UMAP embedding projection client-side via DuckDB-wasm + Mosaic + vgplot so that all computations for selections, brushes, and crossfilters occur instantly in-browser
 - Interface reports live deviations from corpus mean and feature correlations over the current selection in a heatmap strip
@@ -47,7 +47,7 @@ Data Scientist at the University of Virginia with four years of research and ind
 
 <div class="skills">
 <p><strong>Languages &amp; Data:</strong> R, Python, JavaScript, TypeScript, SQL<br>
-<strong>Statistics &amp; Measurement:</strong> permutation testing, effect estimation, linear regression<br>
+<strong>Statistics &amp; Measurement:</strong> permutation testing, effect estimation, covariate adjustment, sampling-bias diagnosis<br>
 <strong>Machine Learning:</strong> text embeddings, supervised classification and probing, PCA, UMAP, clustering, random forest<br>
 <strong>Data Visualization:</strong> Vega-Lite, Mosaic/vgplot, Observable Plot, D3, ggplot2, Tableau<br>
 <strong>Infrastructure:</strong> React, FastAPI, Cloudflare, GitHub Actions, DuckDB, AWS, R Shiny, plumber API, Streamlit</p>
