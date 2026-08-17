@@ -1,19 +1,18 @@
+Data Scientist at the University of Virginia with four years of research and industry experience across large text corpora, genomics, and industrial process data. Experienced in data collection, analysis, and interactive interfaces. Available Fall 2026.
+
 ## Projects
 
 ### Drumbeat Atlas, Drumbeat Labs (Capstone) <span class="date">2026</span>
 
+- Research question: how can we measure the impact of targeted creator campaigns on organic social media?
 - Architected and deployed a social media analysis pipeline on Cloudflare and GitHub Actions to collect a 37,000-post corpus across several campaign topics
 - Transcribed spoken audio and on-screen text of each post for text embeddings, clustering, and sentiment scoring
 - Found views are driven by follower count and post age while engagement is associated with semantic content
 - Trained embedding probes using logistic regression for five content categories at held-out AUC 0.80 to 0.91, finding posts that name wrongdoing draw the strongest engagement in two sponsored campaigns
 - Identified a recency bias in the Scrape Creators API and scoped temporal claims accordingly
-
-### Drumbeat Viewer, Drumbeat Labs (Capstone) <span class="date">2026</span>
-
 - Built a [web interface](https://drumbeat-viewer.pages.dev) in React for post embeddings, sentiment, and metadata to support real-time exploratory demos
-- Renders the UMAP embedding projection client-side via DuckDB-wasm + Mosaic + vgplot so that all computations for selections and crossfilters occur instantly in-browser
-- Links density distribution plots that crossfilter the map, with interval brushes that highlight the selection
-- Reports live deviation from corpus mean and feature correlations over the current selection in a heatmap strip
+- Interface renders the UMAP embedding projection client-side via DuckDB-wasm + Mosaic + vgplot so that all computations for selections, brushes, and crossfilters occur instantly in-browser
+- Interface reports live deviations from corpus mean and feature correlations over the current selection in a heatmap strip
 
 ### BEDbase + gtars, University of Virginia <span class="date">2026</span>
 
